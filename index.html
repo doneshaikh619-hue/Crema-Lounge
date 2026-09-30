@@ -1,1111 +1,1320 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crema Lounge | Premium Cafe & Restaurant — F-7 Markaz, Islamabad (Open 24 Hours)</title>
+  <title>Crema Lounge | Haute Coffee & 24/7 Gastronomy — F-7 Markaz, Islamabad</title>
   
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Crema Lounge in F-7 Markaz, Islamabad. Open 24 hours. Indulge in artisanal Spanish lattes, decadent handcrafted cheesecakes, gourmet dining, and cozy board games. Order online via WhatsApp.">
-  <meta name="keywords" content="Crema Lounge, Crema Lounge Islamabad, Cafe F-7 Markaz, Spanish Latte Islamabad, Cheesecake Islamabad, 24 Hours Cafe Islamabad, Foliage Mall restaurant">
-  <meta name="author" content="Crema Lounge">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="restaurant">
-  <meta property="og:title" content="Crema Lounge | Premium Cafe & Restaurant — F-7 Markaz, Islamabad">
-  <meta property="og:description" content="Islamabad's vibrant 24/7 cafe & social hub. Specialty coffee, artisanal cheesecakes, savory pastas, steaks & board games. Order on WhatsApp.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80">
-  <meta property="og:url" content="https://maps.google.com/?q=Crema+Lounge+Foliage+Mall+Bhittai+Rd+F-7+Markaz+Islamabad">
-
-  <!-- Favicon -->
+  <!-- SEO & Brand Metadata -->
+  <meta name="description" content="Crema Lounge in F-7 Markaz, Islamabad. Open 24 hours daily. Artisanal Spanish lattes, handcrafted cheesecakes, gourmet dining, and late-night lounge culture.">
   <link rel="icon" type="image/jpeg" href="assets/images/crema-logo.jpg">
 
-  <!-- Google Fonts: Playfair Display (Serif), Caveat & Great Vibes (Script), Outfit & Plus Jakarta Sans (Modern Sans) -->
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- GSAP 3 & ScrollTrigger for Award-Winning Motion -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Luxury Editorial Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome 6 Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Schema.org JSON-LD structured data for Google Restaurant & LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CafeOrCoffeeShop",
-    "name": "Crema Lounge",
-    "image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80",
-    "telephone": "+923089482193",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Lower Ground, Foliage Mall, Bhittai Rd, F-7 Markaz",
-      "addressLocality": "Islamabad",
-      "postalCode": "44210",
-      "addressCountry": "PK"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 33.7208,
-      "longitude": 73.0565
-    },
-    "url": "https://www.foodpanda.pk/restaurant/l6yf/crema-lounge",
-    "priceRange": "Rs 1,000–4,000",
-    "servesCuisine": ["Cafe", "Coffee", "Cheesecake", "Continental", "Italian", "Burgers"],
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            crema: {
+              amber: '#FF8A00',
+              gold: '#DFBA6A',
+              goldLight: '#F5E4B8',
+              cream: '#FBF8F3',
+              dark: '#070709',
+              surface: '#0F0F13',
+              card: '#141419',
+              border: 'rgba(255, 138, 0, 0.15)',
+              borderGold: 'rgba(223, 186, 106, 0.25)'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['Cinzel', 'serif'],
+            italiana: ['Italiana', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          boxShadow: {
+            'capsule': '0 20px 50px -10px rgba(0, 0, 0, 0.85), 0 0 35px -5px rgba(255, 138, 0, 0.12)',
+            'card-glow': '0 25px 45px -15px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 138, 0, 0.08)',
+            'amber-glow': '0 0 35px rgba(255, 138, 0, 0.3)',
+            'phone-dock': '0 30px 80px -20px rgba(0, 0, 0, 0.95), 0 0 50px rgba(255, 138, 0, 0.15)'
+          }
+        }
       }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "115"
     }
-  }
   </script>
+
+  <style>
+    body {
+      background-color: #070709;
+      color: #F1F1F4;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      cursor: default;
+    }
+    
+    .font-brand {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.12em;
+    }
+    .font-italiana {
+      font-family: 'Italiana', serif;
+    }
+
+    /* Film Grain Noise Overlay */
+    .film-grain {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.038;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Interactive Magnetic Amber Cursor */
+    #cursor-dot {
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 8px; height: 8px;
+      background: #FF8A00;
+      border-radius: 50%;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 14px #FF8A00;
+    }
+    #cursor-ring {
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255, 138, 0, 0.45);
+      border-radius: 50%;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.15s ease-out;
+    }
+
+    /* Floating Capsule Navbar */
+    .capsule-nav {
+      background: rgba(14, 14, 18, 0.75);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255, 138, 0, 0.22);
+    }
+
+    /* 3D Perspective Card Tilt */
+    .perspective-container {
+      perspective: 1200px;
+    }
+    .tilt-card {
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease-out, border-color 0.3s;
+    }
+
+    /* Shimmering Text Gradient */
+    @keyframes amberShimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .amber-foil-text {
+      background: linear-gradient(90deg, #FF8A00 0%, #FFFFFF 35%, #DFBA6A 70%, #FF8A00 100%);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      animation: amberShimmer 6s linear infinite;
+    }
+
+    .wa-doodle-bg {
+      background-color: #0b141a;
+      background-image: radial-gradient(rgba(255, 138, 0, 0.08) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+  </style>
 </head>
-<body class="theme-premium">
 
-  <!-- TOP ANNOUNCEMENT BAR -->
-  <div class="top-announcement-bar">
-    <div class="container announcement-inner">
-      <div class="announcement-left">
-        <span class="badge-live-pulse"></span>
-        <span class="announcement-text"><strong id="topbar-hours">Open 24 Hours Daily</strong> • Dine-in, Takeaway & Late-Night Delivery across Islamabad</span>
-      </div>
-      <div class="announcement-right">
-        <a href="tel:+923089482193" class="announcement-link" id="topbar-phone"><i class="fa-solid fa-phone"></i> +92 308 9482193</a>
-        <span class="divider">|</span>
-        <button class="btn-text-tool" id="btn-open-sync-modal" title="Google Maps Data Import & Live Sync">
-          <i class="fa-solid fa-satellite-dish"></i> Google Maps Sync
-        </button>
-      </div>
-    </div>
-  </div>
+<body class="selection:bg-crema-amber selection:text-black">
 
-  <!-- NAVIGATION HEADER -->
-  <header class="site-header" id="site-header">
-    <div class="container header-container">
-      <!-- Brand Logo -->
-      <a href="#hero" class="brand-logo" aria-label="Crema Lounge Home">
-        <img src="assets/images/crema-logo.jpg" alt="Crema Lounge Official Logo" class="brand-logo-img">
-        <div class="logo-text-group">
-          <span class="brand-title" id="brand-name">Crema Lounge</span>
-          <span class="brand-subtitle">CAFE & RESTAURANT</span>
+  <!-- SVG Film Grain Overlay -->
+  <div class="film-grain"></div>
+
+  <!-- Interactive Magnetic Cursor -->
+  <div id="cursor-dot" class="hidden md:block"></div>
+  <div id="cursor-ring" class="hidden md:block"></div>
+
+  <!-- ========================================================================= -->
+  <!-- BESPOKE 2026 FLOATING ARCHITECTURAL CAPSULE NAVBAR                        -->
+  <!-- ========================================================================= -->
+  <div class="fixed top-5 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
+    <header class="pointer-events-auto capsule-nav rounded-full px-5 py-2.5 flex items-center justify-between gap-5 sm:gap-8 shadow-capsule max-w-5xl w-full transition-all duration-300">
+      
+      <!-- Brand Logo / Emblem -->
+      <div class="flex items-center gap-3 cursor-pointer group" onclick="switchTab('ordering')">
+        <div class="relative w-9 h-9 rounded-full overflow-hidden border border-crema-amber/50 shadow-md">
+          <img src="assets/images/crema-logo.jpg" alt="Crema Lounge Logo" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
         </div>
-      </a>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-brand text-sm font-bold tracking-widest text-white">CREMA LOUNGE</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          </div>
+          <p class="text-[9px] font-mono tracking-widest text-crema-amber uppercase hidden sm:block">Open 24 Hours • F-7 Islamabad</p>
+        </div>
+      </div>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="main-navigation" aria-label="Primary Navigation">
-        <ul class="nav-links">
-          <li><a href="#hero" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link">About Us</a></li>
-          <li><a href="#popular-dishes" class="nav-link">Popular Dishes</a></li>
-          <li><a href="#menu" class="nav-link">Menu</a></li>
-          <li><a href="#vibes" class="nav-link">Ambience</a></li>
-          <li><a href="#location" class="nav-link">Location</a></li>
-          <li><a href="#reviews" class="nav-link">Reviews</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
+      <!-- Haute Navigation Links (Centered Island) -->
+      <nav class="hidden md:flex items-center gap-1 bg-black/40 p-1 rounded-full border border-white/5 font-mono text-[11px] tracking-wider uppercase">
+        <button onclick="switchTab('ordering')" id="nav-btn-ordering" class="nav-pill active px-4 py-2 rounded-full text-black bg-gradient-to-r from-crema-amber to-amber-500 font-extrabold shadow-sm transition-all duration-300 flex items-center gap-1.5">
+          <span>01.</span> <span class="tracking-widest">Specialty Menu</span>
+        </button>
+        <button onclick="switchTab('booking')" id="nav-btn-booking" class="nav-pill px-4 py-2 rounded-full text-zinc-400 hover:text-white transition-all duration-300 flex items-center gap-1.5">
+          <span>02.</span> <span class="tracking-widest">VIP Table</span>
+        </button>
+        <button onclick="switchTab('events')" id="nav-btn-events" class="nav-pill px-4 py-2 rounded-full text-zinc-400 hover:text-white transition-all duration-300 flex items-center gap-1.5">
+          <span>03.</span> <span class="tracking-widest">Private Lounge</span>
+        </button>
+        <button onclick="switchTab('admin')" id="nav-btn-admin" class="nav-pill px-4 py-2 rounded-full text-crema-amber hover:text-white transition-all duration-300 flex items-center gap-1.5">
+          <i data-lucide="calculator" class="w-3 h-3"></i>
+          <span class="tracking-widest">Command Center</span>
+        </button>
       </nav>
 
-      <!-- Header Action Group: Cart & CTA -->
-      <div class="header-actions">
-        <!-- Floating Cart Button with Counter -->
-        <button class="cart-trigger-btn" id="cart-toggle-btn" aria-label="View Shopping Cart">
-          <div class="cart-icon-box">
-            <i class="fa-solid fa-bag-shopping"></i>
-            <span class="cart-count-badge" id="cart-counter">0</span>
-          </div>
-          <span class="cart-subtotal-text" id="header-cart-total">Rs 0</span>
+      <!-- Cart Action & Call Reservation -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openCart(true)" class="relative p-2 rounded-full bg-zinc-900/80 hover:bg-zinc-800 border border-crema-border text-zinc-200 transition">
+          <i data-lucide="shopping-bag" class="w-3.5 h-3.5 text-crema-amber"></i>
+          <span id="cart-pill-count" class="absolute -top-1 -right-1 w-4 h-4 bg-crema-amber text-black font-extrabold text-[9px] rounded-full flex items-center justify-center font-mono">0</span>
         </button>
 
-        <!-- Primary Order CTA -->
-        <a href="#menu" class="btn btn-primary btn-nav-cta">
-          <i class="fa-solid fa-utensils"></i>
-          <span>Order Now</span>
-        </a>
-
-        <!-- Mobile Menu Toggle Button -->
-        <button class="mobile-toggle-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+        <button onclick="switchTab('booking')" class="px-4 py-2 rounded-full bg-gradient-to-r from-crema-amber via-amber-400 to-crema-amber hover:opacity-90 text-black font-extrabold text-[10px] tracking-widest uppercase shadow transition transform active:scale-95 flex items-center gap-1.5">
+          <span class="hidden sm:inline">Reserve 24/7</span>
+          <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
         </button>
       </div>
-    </div>
-  </header>
 
-  <!-- Mobile Drawer Navigation (Direct body child to prevent stacking context clipping) -->
-  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <div class="mobile-drawer-header">
-      <div class="brand-logo">
-        <img src="assets/images/crema-logo.jpg" alt="Crema Lounge Official Logo" class="brand-logo-img">
-        <div class="logo-text-group">
-          <span class="brand-title">Crema Lounge</span>
-          <span class="brand-subtitle">F-7 MARKAZ, ISLAMABAD</span>
-        </div>
-      </div>
-      <button class="mobile-close-btn" id="mobile-close-btn" aria-label="Close Navigation"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <ul class="mobile-nav-links">
-      <li><a href="#hero" class="mobile-link"><i class="fa-solid fa-house"></i> <span>Home</span></a></li>
-      <li><a href="#about" class="mobile-link"><i class="fa-solid fa-heart"></i> <span>About Us</span></a></li>
-      <li><a href="#popular-dishes" class="mobile-link"><i class="fa-solid fa-fire"></i> <span>Popular Dishes</span></a></li>
-      <li><a href="#menu" class="mobile-link"><i class="fa-solid fa-utensils"></i> <span>Digital Menu</span></a></li>
-      <li><a href="#vibes" class="mobile-link"><i class="fa-solid fa-dice"></i> <span>Ambience & Games</span></a></li>
-      <li><a href="#location" class="mobile-link"><i class="fa-solid fa-location-dot"></i> <span>Location & Hours</span></a></li>
-      <li><a href="#reviews" class="mobile-link"><i class="fa-solid fa-star"></i> <span>Customer Reviews</span></a></li>
-      <li><a href="#contact" class="mobile-link"><i class="fa-solid fa-phone"></i> <span>Contact</span></a></li>
-    </ul>
-    <div class="mobile-drawer-footer">
-      <a href="#menu" class="btn btn-primary btn-block mobile-drawer-order-btn">
-        <i class="fa-solid fa-utensils"></i> Browse & Order Online
-      </a>
-      <a href="https://wa.me/923089482193" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-block">
-        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-      </a>
+    </header>
+  </div>
+
+  <!-- Mobile Bottom Floating Bar -->
+  <div class="md:hidden fixed bottom-4 inset-x-4 z-50 flex justify-center pointer-events-none">
+    <div class="pointer-events-auto capsule-nav rounded-2xl p-1.5 flex items-center justify-around w-full max-w-sm shadow-2xl border border-crema-border/40 text-[10px] font-mono uppercase tracking-wider">
+      <button onclick="switchTab('ordering')" class="px-3 py-2 rounded-xl text-crema-amber font-bold flex flex-col items-center gap-0.5">
+        <i data-lucide="coffee" class="w-3.5 h-3.5"></i>
+        <span>Menu</span>
+      </button>
+      <button onclick="switchTab('booking')" class="px-3 py-2 rounded-xl text-zinc-400 hover:text-white flex flex-col items-center gap-0.5">
+        <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+        <span>Reserve</span>
+      </button>
+      <button onclick="switchTab('events')" class="px-3 py-2 rounded-xl text-zinc-400 hover:text-white flex flex-col items-center gap-0.5">
+        <i data-lucide="crown" class="w-3.5 h-3.5"></i>
+        <span>Lounge</span>
+      </button>
+      <button onclick="switchTab('admin')" class="px-3 py-2 rounded-xl text-amber-400 font-bold flex flex-col items-center gap-0.5">
+        <i data-lucide="dollar-sign" class="w-3.5 h-3.5"></i>
+        <span>ROI Math</span>
+      </button>
     </div>
   </div>
-  <div class="mobile-backdrop" id="mobile-backdrop"></div>
 
-  <main>
-    <!-- HERO SECTION (DARK CINEMATIC WITH FOOD SHOWCASE & AMBIENCE) -->
-    <section class="hero-section" id="hero">
-      <div class="hero-bg-overlay"></div>
-      <div class="container hero-container">
-        
-        <!-- Left Hero Content -->
-        <div class="hero-content">
-          <div class="hero-script-tag">
-            <span>Good Food, Good Mood</span>
-            <svg class="heart-doodle" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF9800" stroke-width="2">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
+  <!-- ========================================================================= -->
+  <!-- MAIN DISPLAY WRAPPER                                                      -->
+  <!-- ========================================================================= -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 w-full space-y-16">
+
+    <!-- ========================================================================= -->
+    <!-- TAB 1: ARTISANAL SPECIALTY CAFE MENU & ORDERING                           -->
+    <!-- ========================================================================= -->
+    <section id="section-ordering" class="space-y-12">
+      
+      <!-- HAUTE HERO SCENE (F-7 Markaz Crema Lounge Ambiance) -->
+      <div class="relative rounded-[36px] overflow-hidden border border-crema-border bg-gradient-to-b from-[#111116] via-[#09090C] to-[#070709] p-8 sm:p-14 lg:p-20 shadow-2xl">
+        <div class="absolute inset-0 z-0 opacity-25 mix-blend-luminosity hover:opacity-35 transition duration-1000 scale-105">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1800&q=80" alt="Crema Lounge F-7 Ambiance" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#070709] via-[#070709]/80 to-transparent z-0"></div>
+
+        <div class="relative z-10 max-w-3xl space-y-6">
+          <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-black/60 border border-crema-border text-xs font-mono tracking-widest text-crema-amber backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>OPEN 24 HOURS DAILY • FOLIAGE MALL, F-7 MARKAZ, ISLAMABAD</span>
           </div>
 
-          <h1 class="hero-title">
-            Delicious Moments <br>
-            <span class="hero-title-script">Made with Love</span>
-            <svg class="heart-doodle-lg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF9800" stroke-width="2">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] text-white font-brand">
+            ARTISANAL ROASTS. <br>
+            <span class="amber-foil-text font-italiana font-normal italic">Decadent Nights.</span>
           </h1>
 
-          <p class="hero-description">
-            Experience the perfect blend of artisanal specialty coffee, world-class cheesecakes, savory gourmet delights, and cozy board games in the heart of Islamabad. Open 24/7 for whenever craving strikes.
+          <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed max-w-2xl">
+            Welcome to Islamabad's favorite 24/7 social hub. Hand-pulled Spanish lattes, velvety cheesecakes, artisan pastas, board games, and late-night comfort. <strong>Order direct with 0% Foodpanda markups.</strong>
           </p>
 
-          <!-- Hero Buttons -->
-          <div class="hero-button-group">
-            <a href="#menu" class="btn btn-primary btn-hero">
-              <i class="fa-solid fa-utensils"></i>
-              <span>Explore Menu</span>
-            </a>
-            <a href="#reservation-banner" class="btn btn-glass btn-hero">
-              <i class="fa-regular fa-calendar-check"></i>
-              <span>Book a Table</span>
-            </a>
-          </div>
-
-          <!-- Feature Highlights Row (Exact to reference design) -->
-          <div class="hero-features-row">
-            <div class="feature-item">
-              <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
-              <div class="feature-text">
-                <strong>Fresh Ingredients</strong>
-                <span>100% Fresh & Artisanal</span>
-              </div>
+          <div class="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono">
+            <div class="bg-black/60 border border-crema-border px-4 py-2 rounded-xl text-zinc-300 flex items-center gap-2">
+              <i data-lucide="coffee" class="w-4 h-4 text-crema-amber"></i>
+              <span>Specialty Coffee & Kitchen Active 24/7</span>
             </div>
-            <div class="feature-item">
-              <div class="feature-icon"><i class="fa-solid fa-mug-hot"></i></div>
-              <div class="feature-text">
-                <strong>Master Baristas</strong>
-                <span>Specialty Spanish Lattes</span>
-              </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon"><i class="fa-solid fa-dice"></i></div>
-              <div class="feature-text">
-                <strong>Great Ambience</strong>
-                <span>Cozy Lounge & Board Games</span>
-              </div>
+            <div class="bg-black/60 border border-crema-border px-4 py-2 rounded-xl text-zinc-300 flex items-center gap-2">
+              <i data-lucide="award" class="w-4 h-4 text-crema-gold"></i>
+              <span>4.8★ Rating (115+ Verified Reviews)</span>
             </div>
           </div>
         </div>
-
-        <!-- Right Hero Visual (Gourmet Showcase with Badge) -->
-        <div class="hero-visual">
-          <div class="hero-image-wrapper">
-            <!-- Glow backlight -->
-            <div class="dish-glow-effect"></div>
-            <!-- Main Hero Dish Image -->
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85" alt="Crema Lounge Signature Gourmet Steak and Pasta" class="hero-dish-img" loading="eager">
-            
-            <!-- Circular Floating Badge (Reference match: "Food in Town") -->
-            <div class="floating-badge-round" id="hero-badge">
-              <div class="badge-inner-dashed">
-                <i class="fa-solid fa-award badge-top-icon"></i>
-                <span class="badge-text-primary">Top Rated</span>
-                <span class="badge-text-sub">4.8 ★ In Town</span>
-              </div>
-            </div>
-
-            <!-- Floating 24 Hours Pill -->
-            <div class="floating-pill-tag">
-              <span class="pulse-dot"></span>
-              <span>Open 24/7 • Foliage Mall, F-7</span>
-            </div>
-          </div>
-        </div>
-
       </div>
 
-      <!-- Torn Paper / Organic Grunge Transition Border (Exact reference visual aesthetic) -->
-      <div class="torn-paper-divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 84" fill="none" preserveAspectRatio="none">
-          <path d="M0,32 C90,12 180,48 270,36 C360,24 450,56 540,40 C630,24 720,52 810,34 C900,16 990,44 1080,28 C1170,12 1260,46 1350,30 C1395,22 1440,36 1440,36 L1440,84 L0,84 Z" fill="#F8F5EE"/>
-          <path d="M0,45 C120,30 240,65 360,50 C480,35 600,68 720,48 C840,28 960,62 1080,42 C1200,22 1320,58 1440,46 L1440,84 L0,84 Z" fill="#FBF8F3"/>
-        </svg>
+      <!-- CATEGORY PILL STRIP -->
+      <div class="flex items-center gap-2.5 overflow-x-auto pb-3 border-b border-crema-border/60">
+        <button onclick="filterCategory('all', this)" class="cat-chip active px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest bg-crema-amber text-black font-extrabold shadow-sm transition">
+          Full Menu (All)
+        </button>
+        <button onclick="filterCategory('coffee', this)" class="cat-chip px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest bg-zinc-900/90 text-zinc-400 hover:text-white border border-crema-border hover:border-crema-amber/40 transition">
+          ☕ Specialty Coffee
+        </button>
+        <button onclick="filterCategory('cheesecake', this)" class="cat-chip px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest bg-zinc-900/90 text-zinc-400 hover:text-white border border-crema-border hover:border-crema-amber/40 transition">
+          🍰 Handcrafted Cheesecakes
+        </button>
+        <button onclick="filterCategory('mains', this)" class="cat-chip px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest bg-zinc-900/90 text-zinc-400 hover:text-white border border-crema-border hover:border-crema-amber/40 transition">
+          🍝 Gourmet Pastas & Steaks
+        </button>
+        <button onclick="filterCategory('burgers', this)" class="cat-chip px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest bg-zinc-900/90 text-zinc-400 hover:text-white border border-crema-border hover:border-crema-amber/40 transition">
+          🍔 Smash Burgers
+        </button>
+        <button onclick="filterCategory('breakfast', this)" class="cat-chip px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest bg-zinc-900/90 text-zinc-400 hover:text-white border border-crema-border hover:border-crema-amber/40 transition">
+          🍳 All-Day 24/7 Breakfast
+        </button>
       </div>
-    </section>
 
-    <!-- ABOUT SECTION (WARM CREAM PALETTE WITH 3-COLUMN ASYMMETRIC GRID) -->
-    <section class="about-section" id="about">
-      <div class="container about-container">
+      <!-- DISHES GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 perspective-container" id="dishes-grid">
         
-        <!-- Left: Story & Mission -->
-        <div class="about-story-col">
-          <div class="section-script-tag">
-            <span>About Us</span>
-            <span class="tilde-dash">~</span>
+        <!-- ITEM 1: Signature Spanish Latte -->
+        <div class="dish-tile coffee tilt-card group rounded-3xl border border-crema-border hover:border-crema-amber bg-[#111115] overflow-hidden flex flex-col justify-between shadow-card-glow transition duration-300">
+          <div class="relative h-60 overflow-hidden bg-black">
+            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" alt="Signature Spanish Latte" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#111115] via-transparent to-black/40"></div>
+            <div class="absolute top-4 left-4 bg-crema-amber text-black text-[10px] font-mono uppercase px-3 py-1 rounded-full font-bold shadow">
+              Most Popular
+            </div>
+            <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-crema-gold text-xs font-mono px-3 py-1 rounded-full border border-crema-border">
+              Double Shot
+            </div>
           </div>
-          <h2 class="about-title">
-            We Serve <br>
-            <span class="script-accent">Happiness</span>
-            <svg class="heart-doodle" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FF9800" stroke-width="2">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-          </h2>
-
-          <p class="about-paragraph">
-            At <strong>Crema Lounge</strong>, we believe that great food and coffee bring people together. Located at the Lower Ground of Foliage Mall in Islamabad's bustling F-7 Markaz, our lounge is much more than a typical cafe—it's a vibrant social hub that brings comfort, community, and culinary indulgence under one roof.
-          </p>
-          <p class="about-paragraph secondary-p">
-            Whether you are catching up with friends over our beloved signature <strong>Spanish Latte</strong>, challenging each other to lively <strong>board games</strong>, indulging in authentic <strong>handcrafted cheesecakes</strong>, or enjoying late-night gourmet steaks, our kind and welcoming staff is here for you 24 hours a day.
-          </p>
-
-          <div class="about-signature-wrap">
-            <span class="signature-font">Crema Lounge</span>
-            <span class="signature-badge">F-7 Markaz, Islamabad</span>
-          </div>
-
-          <a href="#popular-dishes" class="btn btn-primary btn-about-cta">
-            <span>Explore Popular Dishes</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-
-        <!-- Center: Warm Interior Cafe Ambience with Floating Badge -->
-        <div class="about-image-col">
-          <div class="interior-card-wrapper">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" alt="Crema Lounge Cozy Atmosphere and Dining Interior" class="interior-img">
-            
-            <!-- Floating Experience / 24-Hour Badge (Matches reference) -->
-            <div class="floating-exp-badge">
-              <div class="exp-icon-box">
-                <i class="fa-solid fa-clock"></i>
+          <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-brand font-bold text-lg text-white group-hover:text-crema-amber transition">Signature Spanish Latte</h3>
+                <span class="text-base font-bold font-mono text-crema-amber whitespace-nowrap">Rs. 850</span>
               </div>
-              <div class="exp-text-box">
-                <span class="exp-number">24/7</span>
-                <span class="exp-label">Open Day & Night</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: 4-Grid Feature Box (Matches Reference Design Exactly) -->
-        <div class="about-features-col">
-          <div class="four-grid-feature-card">
-            
-            <div class="grid-feature-box">
-              <div class="grid-icon"><i class="fa-solid fa-seedling"></i></div>
-              <h3 class="grid-feature-title">Fresh Ingredients</h3>
-              <p class="grid-feature-desc">100% premium quality, fresh dairy, and authentic imported espresso beans.</p>
-            </div>
-
-            <div class="grid-feature-box">
-              <div class="grid-icon"><i class="fa-solid fa-mug-saucer"></i></div>
-              <h3 class="grid-feature-title">Skilled Baristas</h3>
-              <p class="grid-feature-desc">Passionate baristas crafting signature Spanish Lattes and specialty drinks.</p>
-            </div>
-
-            <div class="grid-feature-box">
-              <div class="grid-icon"><i class="fa-solid fa-bell-concierge"></i></div>
-              <h3 class="grid-feature-title">Fast & Kind Service</h3>
-              <p class="grid-feature-desc">Praised by customers for courteous, attentive, and genuinely warm hospitality.</p>
-            </div>
-
-            <div class="grid-feature-box">
-              <div class="grid-icon"><i class="fa-solid fa-users"></i></div>
-              <h3 class="grid-feature-title">Happy Community</h3>
-              <p class="grid-feature-desc">4.8-star Google rating with 115+ reviews from Islamabad coffee lovers.</p>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- POPULAR DISHES CAROUSEL SECTION (MATCHING REFERENCE UI) -->
-    <section class="popular-dishes-section" id="popular-dishes">
-      <div class="container">
-        
-        <!-- Header & Nav Arrows -->
-        <div class="section-header-row">
-          <div class="header-titles">
-            <div class="section-script-tag">
-              <span>Our Menu</span>
-              <span class="tilde-dash">~</span>
-            </div>
-            <h2 class="section-heading">Popular Dishes & Signature Brews</h2>
-          </div>
-          
-          <div class="carousel-nav-controls">
-            <button class="carousel-arrow prev-btn" id="pop-prev-btn" aria-label="Previous Dishes">
-              <i class="fa-solid fa-arrow-left"></i>
-            </button>
-            <button class="carousel-arrow next-btn" id="pop-next-btn" aria-label="Next Dishes">
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Carousel Track / Grid Wrapper -->
-        <div class="dishes-carousel-viewport" id="dishes-carousel-viewport">
-          <div class="dishes-carousel-track" id="popular-dishes-track">
-            <!-- Populated via script.js with authentic Crema Lounge favorites -->
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- DIGITAL MENU SECTION (CATEGORY TABS + SEARCH + ADD TO CART) -->
-    <section class="full-menu-section" id="menu">
-      <div class="container">
-        <div class="menu-intro-header text-center">
-          <div class="section-script-tag centered">
-            <span>Indulge Your Senses</span>
-            <span class="tilde-dash">~</span>
-          </div>
-          <h2 class="section-heading">Crema Lounge Complete Menu</h2>
-          <p class="section-subtext">Freshly prepared around the clock. Select your favorites to add to cart and order seamlessly on WhatsApp.</p>
-        </div>
-
-        <!-- Search & Filter Controls -->
-        <div class="menu-filter-bar">
-          <div class="menu-search-wrapper">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="menu-search-input" placeholder="Search coffee, cheesecakes, pasta, steaks, burgers..." aria-label="Search Menu Items">
-            <button class="clear-search-btn" id="clear-search-btn" aria-label="Clear Search"><i class="fa-solid fa-circle-xmark"></i></button>
-          </div>
-
-          <!-- Category Pills -->
-          <div class="category-pills-list" id="category-pills" role="tablist">
-            <button class="category-pill active" data-category="all" role="tab" aria-selected="true">All Items</button>
-            <button class="category-pill" data-category="coffee" role="tab" aria-selected="false">Specialty Coffee</button>
-            <button class="category-pill" data-category="cheesecake" role="tab" aria-selected="false">Handcrafted Cheesecakes</button>
-            <button class="category-pill" data-category="mains" role="tab" aria-selected="false">Pastas & Steaks</button>
-            <button class="category-pill" data-category="burgers" role="tab" aria-selected="false">Burgers & Sandwiches</button>
-            <button class="category-pill" data-category="beverages" role="tab" aria-selected="false">Refreshers & Shakes</button>
-          </div>
-        </div>
-
-        <!-- Menu Items Grid -->
-        <div class="menu-items-grid" id="menu-items-grid">
-          <!-- Dynamically Rendered by script.js -->
-        </div>
-
-        <div class="menu-empty-state hidden" id="menu-empty-state">
-          <i class="fa-solid fa-bowl-food empty-icon"></i>
-          <h3>No Dishes Found</h3>
-          <p>We couldn't find anything matching your search. Try another category or keyword.</p>
-          <button class="btn btn-outline" id="btn-reset-filters">Reset Filters</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- DARK RESERVATION / LATE NIGHT DINE-IN BANNER (EXACT TO REFERENCE) -->
-    <section class="reservation-banner-section" id="reservation-banner">
-      <div class="container">
-        <div class="reservation-banner-card">
-          <div class="banner-left-content">
-            <div class="banner-icon-box">
-              <i class="fa-solid fa-calendar-days"></i>
-            </div>
-            <div class="banner-text-box">
-              <span class="banner-badge-sub">Book Your Table or Late Night Visit</span>
-              <h3 class="banner-title">Reserve Your Table Now!</h3>
-              <p class="banner-tagline">
-                <svg class="banner-doodle" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF9800" stroke-width="2">
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                </svg>
-                Good food is better when shared with friends & family. Open 24 Hours.
+              <p class="text-xs text-zinc-400 mt-2.5 leading-relaxed font-light">
+                Double shot rich espresso poured over silky condensed milk and micro-foamed whole milk. Velvety, smooth, and deeply satisfying.
               </p>
             </div>
-          </div>
-          <div class="banner-right-action">
-            <a href="https://wa.me/923089482193?text=Hi%20Crema%20Lounge%2C%20I%20would%20like%20to%20reserve%20a%20table." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-banner-action">
-              <i class="fa-solid fa-calendar-check"></i>
-              <span>Book a Table</span>
-            </a>
+            <div class="pt-3 border-t border-crema-border/60 flex items-center justify-between">
+              <span class="text-[11px] text-zinc-500 font-mono">Hot / Iced Available</span>
+              <button onclick="addToOrder('Signature Spanish Latte', 850, 'latte')" class="px-4 py-2 rounded-full bg-crema-amber hover:bg-amber-400 text-black font-extrabold text-xs uppercase tracking-wider shadow flex items-center gap-1.5 transition active:scale-95">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                <span>Add to Order</span>
+              </button>
+            </div>
           </div>
         </div>
+
+        <!-- ITEM 2: Lotus Biscoff Cheesecake -->
+        <div class="dish-tile cheesecake tilt-card group rounded-3xl border border-crema-border hover:border-crema-amber bg-[#111115] overflow-hidden flex flex-col justify-between shadow-card-glow transition duration-300">
+          <div class="relative h-60 overflow-hidden bg-black">
+            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=800&q=80" alt="Lotus Biscoff Cheesecake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#111115] via-transparent to-black/40"></div>
+            <div class="absolute top-4 left-4 bg-amber-600 text-black text-[10px] font-mono uppercase px-3 py-1 rounded-full font-bold shadow">
+              House Specialty
+            </div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-brand font-bold text-lg text-white group-hover:text-crema-amber transition">Lotus Biscoff Cheesecake</h3>
+                <span class="text-base font-bold font-mono text-crema-amber whitespace-nowrap">Rs. 1,050</span>
+              </div>
+              <p class="text-xs text-zinc-400 mt-2.5 leading-relaxed font-light">
+                Silky Philadelphia cream cheese infused with caramelized Belgian Lotus speculoos spread over a golden crushed biscuit base.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-crema-border/60 flex items-center justify-between">
+              <span class="text-[11px] text-zinc-500 font-mono">Baked In-House Fresh</span>
+              <button onclick="addToOrder('Lotus Biscoff Cheesecake', 1050, 'dessert')" class="px-4 py-2 rounded-full bg-crema-amber hover:bg-amber-400 text-black font-extrabold text-xs uppercase tracking-wider shadow flex items-center gap-1.5 transition active:scale-95">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                <span>Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ITEM 3: Creamy Fettuccine Alfredo -->
+        <div class="dish-tile mains tilt-card group rounded-3xl border border-crema-border hover:border-crema-amber bg-[#111115] overflow-hidden flex flex-col justify-between shadow-card-glow transition duration-300">
+          <div class="relative h-60 overflow-hidden bg-black">
+            <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=800&q=80" alt="Fettuccine Alfredo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#111115] via-transparent to-black/40"></div>
+            <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-crema-gold text-xs font-mono px-3 py-1 rounded-full border border-crema-border">
+              Italian Classic
+            </div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-brand font-bold text-lg text-white group-hover:text-crema-amber transition">Creamy Fettuccine Alfredo</h3>
+                <span class="text-base font-bold font-mono text-crema-amber whitespace-nowrap">Rs. 1,450</span>
+              </div>
+              <p class="text-xs text-zinc-400 mt-2.5 leading-relaxed font-light">
+                Fresh fettuccine ribbons tossed in velvety aged parmesan garlic cream, herb-grilled chicken fillet, and fresh crushed parsley.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-crema-border/60 flex items-center justify-between">
+              <span class="text-[11px] text-zinc-500 font-mono">With Garlic Sourdough</span>
+              <button onclick="addToOrder('Creamy Fettuccine Alfredo', 1450, 'main')" class="px-4 py-2 rounded-full bg-crema-amber hover:bg-amber-400 text-black font-extrabold text-xs uppercase tracking-wider shadow flex items-center gap-1.5 transition active:scale-95">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                <span>Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ITEM 4: The Crema Angus Truffle Burger -->
+        <div class="dish-tile burgers tilt-card group rounded-3xl border border-crema-border hover:border-crema-amber bg-[#111115] overflow-hidden flex flex-col justify-between shadow-card-glow transition duration-300">
+          <div class="relative h-60 overflow-hidden bg-black">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Angus Truffle Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#111115] via-transparent to-black/40"></div>
+            <div class="absolute top-4 left-4 bg-red-950 text-red-400 border border-red-800/60 text-[10px] font-mono uppercase px-3 py-1 rounded-full font-bold">
+              Gourmet Angus
+            </div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-brand font-bold text-lg text-white group-hover:text-crema-amber transition">Angus Truffle Burger</h3>
+                <span class="text-base font-bold font-mono text-crema-amber whitespace-nowrap">Rs. 1,550</span>
+              </div>
+              <p class="text-xs text-zinc-400 mt-2.5 leading-relaxed font-light">
+                Hand-pressed black angus beef smash, truffle garlic butter, melted sharp cheddar, caramelized onions, on toasted buttered brioche.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-crema-border/60 flex items-center justify-between">
+              <span class="text-[11px] text-zinc-500 font-mono">With Truffle Fries</span>
+              <button onclick="addToOrder('Angus Truffle Burger', 1550, 'burger')" class="px-4 py-2 rounded-full bg-crema-amber hover:bg-amber-400 text-black font-extrabold text-xs uppercase tracking-wider shadow flex items-center gap-1.5 transition active:scale-95">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                <span>Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ITEM 5: 24/7 Artisanal Breakfast Skillet -->
+        <div class="dish-tile breakfast tilt-card group rounded-3xl border border-crema-border hover:border-crema-amber bg-[#111115] overflow-hidden flex flex-col justify-between shadow-card-glow transition duration-300">
+          <div class="relative h-60 overflow-hidden bg-black">
+            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80" alt="Breakfast Skillet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#111115] via-transparent to-black/40"></div>
+            <div class="absolute top-4 left-4 bg-crema-amber/20 text-crema-amber border border-crema-amber/40 text-[10px] font-mono uppercase px-3 py-1 rounded-full font-bold">
+              Available 24 Hours
+            </div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-brand font-bold text-lg text-white group-hover:text-crema-amber transition">All-Day Breakfast Skillet</h3>
+                <span class="text-base font-bold font-mono text-crema-amber whitespace-nowrap">Rs. 1,290</span>
+              </div>
+              <p class="text-xs text-zinc-400 mt-2.5 leading-relaxed font-light">
+                Two sunny farm eggs, smoked beef sausages, country skillet hash, grilled herb tomatoes, and butter-toasted artisan sourdough.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-crema-border/60 flex items-center justify-between">
+              <span class="text-[11px] text-zinc-500 font-mono">Served 24/7</span>
+              <button onclick="addToOrder('All-Day Breakfast Skillet', 1290, 'breakfast')" class="px-4 py-2 rounded-full bg-crema-amber hover:bg-amber-400 text-black font-extrabold text-xs uppercase tracking-wider shadow flex items-center gap-1.5 transition active:scale-95">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                <span>Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ITEM 6: Iced Caramel Macchiato -->
+        <div class="dish-tile coffee tilt-card group rounded-3xl border border-crema-border hover:border-crema-amber bg-[#111115] overflow-hidden flex flex-col justify-between shadow-card-glow transition duration-300">
+          <div class="relative h-60 overflow-hidden bg-black">
+            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80" alt="Iced Caramel Macchiato" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#111115] via-transparent to-black/40"></div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-brand font-bold text-lg text-white group-hover:text-crema-amber transition">Iced Caramel Macchiato</h3>
+                <span class="text-base font-bold font-mono text-crema-amber whitespace-nowrap">Rs. 890</span>
+              </div>
+              <p class="text-xs text-zinc-400 mt-2.5 leading-relaxed font-light">
+                Chilled whole milk, natural Madagascar vanilla bean syrup, fresh espresso float, and a criss-cross of homemade warm caramel drizzle.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-crema-border/60 flex items-center justify-between">
+              <span class="text-[11px] text-zinc-500 font-mono">Cold & Sweet</span>
+              <button onclick="addToOrder('Iced Caramel Macchiato', 890, 'coffee')" class="px-4 py-2 rounded-full bg-crema-amber hover:bg-amber-400 text-black font-extrabold text-xs uppercase tracking-wider shadow flex items-center gap-1.5 transition active:scale-95">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                <span>Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
+
     </section>
 
-    <!-- AMBIENCE & BOARD GAMES SECTION (Highlighting Verified Google Maps Details) -->
-    <section class="ambience-section" id="vibes">
-      <div class="container">
-        <div class="section-header-row text-center mb-5">
-          <div class="header-titles w-100">
-            <div class="section-script-tag centered">
-              <span>Cozy Community Hub</span>
-              <span class="tilde-dash">~</span>
-            </div>
-            <h2 class="section-heading">More Than Just a Cafe</h2>
-            <p class="section-subtext">A cozy retreat in Foliage Mall, F-7 where coffee enthusiasts, students, creatives, and night owls gather.</p>
-          </div>
-        </div>
-
-        <div class="vibe-cards-grid">
-          <div class="vibe-card">
-            <div class="vibe-image-wrap">
-              <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600&q=80" alt="Specialty Spanish Latte and Artisan Brews at Crema Lounge">
-              <div class="vibe-tag">Signature Drink</div>
-            </div>
-            <div class="vibe-card-body">
-              <div class="vibe-icon"><i class="fa-solid fa-mug-hot"></i></div>
-              <h3>Specialty Coffee & Spanish Latte</h3>
-              <p>Brewed with precision using single-origin roasts and velvety condensed milk. A customer favorite praised across Islamabad.</p>
-            </div>
-          </div>
-
-          <div class="vibe-card">
-            <div class="vibe-image-wrap">
-              <img src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=600&q=80" alt="Board Games Collection at Crema Lounge Islamabad">
-              <div class="vibe-tag">Social Hub</div>
-            </div>
-            <div class="vibe-card-body">
-              <div class="vibe-icon"><i class="fa-solid fa-dice-d20"></i></div>
-              <h3>Board Games & Weekly Events</h3>
-              <p>Challenge friends to classic board games, connect over great conversations, and enjoy vibrant community events every week.</p>
-            </div>
-          </div>
-
-          <div class="vibe-card">
-            <div class="vibe-image-wrap">
-              <img src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=600&q=80" alt="Decadent Cheesecakes at Crema Lounge">
-              <div class="vibe-tag">Fresh Daily</div>
-            </div>
-            <div class="vibe-card-body">
-              <div class="vibe-icon"><i class="fa-solid fa-cake-candles"></i></div>
-              <h3>Handmade Cheesecakes</h3>
-              <p>From New York style to rich Lotus Biscoff and San Sebastian burnt cheesecakes, baked fresh to satisfy your sweetest cravings.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VERIFIED GOOGLE MAPS REVIEWS (100% Real from Google Maps input) -->
-    <section class="reviews-section" id="reviews">
-      <div class="container">
-        <div class="reviews-header text-center">
-          <div class="section-script-tag centered">
-            <span>Verified Google Reviews</span>
-            <span class="tilde-dash">~</span>
-          </div>
-          <h2 class="section-heading">What Our Guests Say</h2>
-          <div class="google-rating-summary-pill">
-            <span class="google-g-icon"><i class="fa-brands fa-google"></i></span>
-            <span class="rating-num">4.8</span>
-            <div class="stars-row">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <span class="review-total-count">Based on 115 Google Reviews</span>
-          </div>
-        </div>
-
-        <div class="reviews-cards-row">
-          <!-- Real Review 1 -->
-          <div class="review-card">
-            <div class="review-top">
-              <div class="reviewer-avatar">AK</div>
-              <div class="reviewer-info">
-                <h4>Aqsha Khan</h4>
-                <span>Local Guide • 33 reviews</span>
-              </div>
-              <div class="google-small-badge"><i class="fa-brands fa-google"></i></div>
-            </div>
-            <div class="review-rating">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <span class="review-time">1 month ago</span>
-            </div>
-            <p class="review-text">
-              "If you’re planning to go somewhere nice for coffee or have a birthday coming up, this spot is perfect for you! The staff is incredibly friendly and sweet, but what really impressed me was the atmosphere and the cheesecake!"
-            </p>
-            <div class="review-tag"><i class="fa-solid fa-check"></i> Verified Dine-in</div>
-          </div>
-
-          <!-- Real Review 2 -->
-          <div class="review-card">
-            <div class="review-top">
-              <div class="reviewer-avatar">DJ</div>
-              <div class="reviewer-info">
-                <h4>DJ BeAtZ</h4>
-                <span>Local Guide • 8 reviews</span>
-              </div>
-              <div class="google-small-badge"><i class="fa-brands fa-google"></i></div>
-            </div>
-            <div class="review-rating">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <span class="review-time">2 months ago</span>
-            </div>
-            <p class="review-text">
-              "Crema Lounge is one of my favorite places! The food is always delicious, the atmosphere is cozy, and the staff are incredibly friendly and welcoming. What makes this place even more special is that they host amazing events every week!"
-            </p>
-            <div class="review-tag"><i class="fa-solid fa-check"></i> Verified Dine-in</div>
-          </div>
-
-          <!-- Real Review 3 -->
-          <div class="review-card">
-            <div class="review-top">
-              <div class="reviewer-avatar">NK</div>
-              <div class="reviewer-info">
-                <h4>NAINA KBLOGS</h4>
-                <span>Local Guide • 35 reviews</span>
-              </div>
-              <div class="google-small-badge"><i class="fa-brands fa-google"></i></div>
-            </div>
-            <div class="review-rating">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <span class="review-time">3 months ago</span>
-            </div>
-            <p class="review-text">
-              "⭐⭐⭐⭐⭐ 5/5 Overall Rating. Crema Lounge is much more than just a café—it's a vibrant social hub that brings great coffee, board games, and late night energy together in F-7 Markaz."
-            </p>
-            <div class="review-tag"><i class="fa-solid fa-check"></i> Verified Dine-in</div>
-          </div>
-        </div>
-
-        <div class="reviews-cta-row text-center mt-4">
-          <a href="https://maps.google.com/?q=Crema+Lounge+Foliage+Mall+Bhittai+Rd+F-7+Markaz+Islamabad" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-            <i class="fa-solid fa-star text-gold"></i>
-            <span>Read All 115 Reviews on Google Maps</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- LOCATION & BUSINESS HOURS SECTION (Google Maps Integrated) -->
-    <section class="location-section" id="location">
-      <div class="container">
-        <div class="location-layout">
-          
-          <!-- Location Details Card -->
-          <div class="location-info-card">
-            <div class="section-script-tag">
-              <span>Find Us in Islamabad</span>
-              <span class="tilde-dash">~</span>
-            </div>
-            <h2 class="section-heading text-left">Visit Crema Lounge</h2>
-            <p class="location-intro">Conveniently situated at the Lower Ground level of Foliage Mall in F-7 Markaz, Islamabad with easy parking and round-the-clock service.</p>
-
-            <div class="contact-details-list">
-              <div class="contact-detail-row">
-                <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
-                <div class="detail-content">
-                  <strong>Address:</strong>
-                  <span id="loc-address">Lower Ground, Foliage Mall, Bhittai Rd, F-7 Markaz, Islamabad, 44210, Pakistan</span>
-                  <span class="plus-code-tag"><i class="fa-solid fa-hashtag"></i> Plus Code: <strong id="loc-pluscode">P3C4+2V Islamabad, Pakistan</strong></span>
-                </div>
-              </div>
-
-              <div class="contact-detail-row">
-                <div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
-                <div class="detail-content">
-                  <strong>Opening Hours:</strong>
-                  <span class="hours-highlight" id="loc-hours"><i class="fa-solid fa-circle-check text-green"></i> Open 24 Hours (Monday through Sunday)</span>
-                  <span class="text-muted-sm">Dine-in, Takeaway & 24/7 Delivery</span>
-                </div>
-              </div>
-
-              <div class="contact-detail-row">
-                <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
-                <div class="detail-content">
-                  <strong>Phone / Orders:</strong>
-                  <a href="tel:+923089482193" class="phone-link" id="loc-phone">+92 308 9482193</a>
-                  <span class="text-muted-sm">Direct call or WhatsApp order line</span>
-                </div>
-              </div>
-
-              <div class="contact-detail-row">
-                <div class="detail-icon"><i class="fa-solid fa-wallet"></i></div>
-                <div class="detail-content">
-                  <strong>Price Range:</strong>
-                  <span id="loc-price">Rs 1,000–4,000 per person</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Action CTAs -->
-            <div class="location-actions-group">
-              <a href="https://maps.google.com/?q=Crema+Lounge+Foliage+Mall+Bhittai+Rd+F-7+Markaz+Islamabad" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btn-directions">
-                <i class="fa-solid fa-diamond-turn-right"></i>
-                <span>Get Directions on Google Maps</span>
-              </a>
-              <a href="https://www.foodpanda.pk/restaurant/l6yf/crema-lounge" target="_blank" rel="noopener noreferrer" class="btn btn-glass" id="btn-foodpanda">
-                <i class="fa-solid fa-motorcycle"></i>
-                <span>Foodpanda Delivery</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Embedded Interactive Map Card -->
-          <div class="location-map-wrap">
-            <div class="map-frame-box">
-              <iframe 
-                title="Crema Lounge Google Maps Location"
-                src="https://maps.google.com/maps?q=Foliage%20Mall%20Bhittai%20Rd%20F-7%20Markaz%20Islamabad&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-              <div class="map-floating-overlay">
-                <div class="overlay-brand">
-                  <strong>Crema Lounge</strong>
-                  <span>Foliage Mall, F-7 Markaz</span>
-                </div>
-                <span class="badge-status-open">Open 24/7</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT & INQUIRIES SECTION -->
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="contact-card-box">
-          <div class="contact-card-content">
-            <span class="contact-tag">Get in Touch</span>
-            <h2 class="contact-title">Have a Question or Special Event?</h2>
-            <p class="contact-sub">Planning a birthday celebration, private gathering, or late-night corporate coffee run? Connect with our team directly on WhatsApp or phone.</p>
-            
-            <div class="contact-button-row">
-              <a href="https://wa.me/923089482193" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>Message on WhatsApp</span>
-              </a>
-              <a href="tel:+923089482193" class="btn btn-outline btn-lg">
-                <i class="fa-solid fa-phone"></i>
-                <span>Call +92 308 9482193</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- SITE FOOTER (MATCHING REFERENCE UI + MANDATORY POWERED BY GROWECH SOLUTION) -->
-  <footer class="site-footer">
-    <div class="container footer-container">
+    <!-- ========================================================================= -->
+    <!-- TAB 2: VIP TABLE RESERVATION & APPLE MAGSAFE CONCIERGE DOCK               -->
+    <!-- ========================================================================= -->
+    <section id="section-booking" class="hidden space-y-12">
       
-      <!-- Footer Col 1: Brand & Bio -->
-      <div class="footer-col footer-col-brand">
-        <a href="#hero" class="brand-logo footer-logo">
-          <img src="assets/images/crema-logo.jpg" alt="Crema Lounge Official Logo" class="brand-logo-img">
-          <div class="logo-text-group">
-            <span class="brand-title" id="footer-brand-name">Crema Lounge</span>
-            <span class="brand-subtitle">CAFE & RESTAURANT</span>
-          </div>
-        </a>
-
-        <p class="footer-bio">
-          Crema Lounge is where taste meets passion. We serve artisanal coffee, decadent cheesecakes, savory gourmet plates, great vibes, and unforgettable moments in the heart of Islamabad.
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-bold tracking-widest text-crema-amber uppercase font-mono">24/7 Hospitality Engine</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-brand">VIP TABLE & LOUNGE RESERVATION</h2>
+        <p class="text-xs sm:text-sm text-zinc-400 font-light">
+          Reserve your late-night spot at Foliage Mall, F-7 Markaz. Instant WhatsApp confirmation & VIP hospitality tagging.
         </p>
-
-        <!-- Social Icons -->
-        <div class="footer-social-links">
-          <a href="https://maps.google.com/?q=Crema+Lounge+Foliage+Mall+Bhittai+Rd+F-7+Markaz+Islamabad" target="_blank" rel="noopener noreferrer" aria-label="Google Maps" class="social-btn"><i class="fa-brands fa-google"></i></a>
-          <a href="https://www.foodpanda.pk/restaurant/l6yf/crema-lounge" target="_blank" rel="noopener noreferrer" aria-label="Foodpanda" class="social-btn"><i class="fa-solid fa-motorcycle"></i></a>
-          <a href="https://wa.me/923089482193" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="tel:+923089482193" aria-label="Phone" class="social-btn"><i class="fa-solid fa-phone"></i></a>
-        </div>
       </div>
 
-      <!-- Footer Col 2: Quick Links -->
-      <div class="footer-col">
-        <h4 class="footer-heading">Quick Links</h4>
-        <ul class="footer-links-list">
-          <li><a href="#hero"><i class="fa-solid fa-angle-right"></i> Home</a></li>
-          <li><a href="#about"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
-          <li><a href="#popular-dishes"><i class="fa-solid fa-angle-right"></i> Popular Dishes</a></li>
-          <li><a href="#menu"><i class="fa-solid fa-angle-right"></i> Digital Menu</a></li>
-          <li><a href="#vibes"><i class="fa-solid fa-angle-right"></i> Ambience & Games</a></li>
-          <li><a href="#reservation-banner"><i class="fa-solid fa-angle-right"></i> Book a Table</a></li>
-          <li><a href="#location"><i class="fa-solid fa-angle-right"></i> Location</a></li>
-        </ul>
-      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Reservation Form (7 cols) -->
+        <div class="lg:col-span-7 rounded-[32px] border border-crema-border bg-[#101014] p-8 sm:p-10 shadow-2xl space-y-7">
+          <div class="flex items-center justify-between border-b border-crema-border/70 pb-4">
+            <h3 class="font-brand font-bold text-white text-base flex items-center gap-2">
+              <i data-lucide="calendar" class="w-4 h-4 text-crema-amber"></i>
+              <span>Reservation Parameters</span>
+            </h3>
+            <span class="text-[11px] text-crema-amber font-mono">Foliage Mall, F-7</span>
+          </div>
 
-      <!-- Footer Col 3: Opening Hours -->
-      <div class="footer-col">
-        <h4 class="footer-heading">Opening Hours</h4>
-        <div class="footer-hours-box">
-          <div class="hours-line">
-            <span class="day-span">Monday – Sunday</span>
-            <span class="time-span" id="footer-hours">Open 24 Hours</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Party Size</label>
+              <select id="res-party-size" class="w-full bg-zinc-950 border border-crema-border rounded-2xl px-4 py-3 text-xs text-white focus:border-crema-amber focus:outline-none transition">
+                <option value="2 Guests (Intimate Coffee Table)">2 Guests (Intimate Coffee Table)</option>
+                <option value="4 Guests (Lounge Booth)" selected>4 Guests (Lounge Booth & Board Games)</option>
+                <option value="6 Guests (Social Group Table)">6 Guests (Social Group Table)</option>
+                <option value="8+ Guests (Private Study Corner)">8+ Guests (Private Study Corner)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Dining Date</label>
+              <input type="date" id="res-date-val" value="2026-10-02" class="w-full bg-zinc-950 border border-crema-border rounded-2xl px-4 py-2.5 text-xs text-white focus:border-crema-amber focus:outline-none transition font-mono">
+            </div>
           </div>
-          <div class="hours-line">
-            <span class="day-span">Breakfast & Coffee</span>
-            <span class="time-span">Around the Clock</span>
-          </div>
-          <div class="hours-line">
-            <span class="day-span">Late-Night Bites</span>
-            <span class="time-span">All Night Long</span>
-          </div>
-          <div class="footer-highlight-script">
-            <span class="script-text">We are Open Everyday!</span>
-          </div>
-        </div>
-      </div>
 
-      <!-- Footer Col 4: Contact Us -->
-      <div class="footer-col">
-        <h4 class="footer-heading">Contact Us</h4>
-        <ul class="footer-contact-list">
-          <li>
-            <i class="fa-solid fa-phone text-orange"></i>
-            <a href="tel:+923089482193" id="footer-phone">+92 308 9482193</a>
-          </li>
-          <li>
-            <i class="fa-brands fa-whatsapp text-green"></i>
-            <a href="https://wa.me/923089482193" target="_blank" rel="noopener noreferrer">WhatsApp Order Line</a>
-          </li>
-          <li>
-            <i class="fa-solid fa-location-dot text-orange"></i>
-            <span id="footer-address">Lower Ground, Foliage Mall, Bhittai Rd, F-7 Markaz, Islamabad, 44210, Pakistan</span>
-          </li>
-        </ul>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Seating Time (Open 24/7)</label>
+              <select id="res-time-val" class="w-full bg-zinc-950 border border-crema-border rounded-2xl px-4 py-3 text-xs text-white focus:border-crema-amber focus:outline-none transition font-mono">
+                <option value="4:00 PM - Afternoon Coffee">4:00 PM - Afternoon Coffee</option>
+                <option value="8:30 PM - Prime Evening">8:30 PM - Prime Evening</option>
+                <option value="11:30 PM - Late Night Social" selected>11:30 PM - Late Night Social</option>
+                <option value="2:00 AM - Midnight Study Session">2:00 AM - Midnight Study Session</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Lounge Zone</label>
+              <select id="res-zone-val" class="w-full bg-zinc-950 border border-crema-border rounded-2xl px-4 py-3 text-xs text-white focus:border-crema-amber focus:outline-none transition">
+                <option value="Main Velvet Lounge" selected>Main Velvet Lounge (Music & Vibe)</option>
+                <option value="Quiet Work / Study Booth">Quiet Work / Study Booth (High Wi-Fi)</option>
+                <option value="Board Games Corner">Board Games Corner</option>
+                <option value="Outdoor Foliage Patio">Outdoor Foliage Patio (Bhittai Rd)</option>
+              </select>
+            </div>
+          </div>
 
-        <div class="footer-admin-tool mt-3">
-          <button class="btn-footer-tool" id="btn-footer-sync">
-            <i class="fa-solid fa-gear"></i> Update Business Info
+          <div class="border-t border-crema-border/60 pt-5 space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Guest Full Name</label>
+                <input type="text" id="res-guest-name" value="Mr. Mustafa Shaikh" class="w-full bg-zinc-950 border border-crema-border rounded-2xl px-4 py-3 text-xs text-white focus:border-crema-amber focus:outline-none transition">
+              </div>
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">WhatsApp Number</label>
+                <input type="text" id="res-guest-phone" value="+92 308 9482193" class="w-full bg-zinc-950 border border-crema-border rounded-2xl px-4 py-3 text-xs text-white focus:border-crema-amber focus:outline-none transition font-mono">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Notes / Board Game Request</label>
+              <input type="text" id="res-guest-notes" value="Late night study & Spanish Latte. Needs power plug." class="w-full bg-zinc-950 border border-crema-border rounded-2xl px-4 py-3 text-xs text-white focus:border-crema-amber focus:outline-none transition">
+            </div>
+          </div>
+
+          <!-- Trigger CTA -->
+          <button onclick="triggerCremaReservation()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-crema-amber via-amber-400 to-crema-amber hover:opacity-95 text-black font-extrabold text-xs uppercase tracking-widest shadow-lg flex items-center justify-center gap-2 transition transform active:scale-98">
+            <i data-lucide="zap" class="w-4 h-4"></i>
+            <span>Confirm 24/7 Booking & Ring Guest Device</span>
           </button>
         </div>
+
+        <!-- Right: IPHONE 16 PRO MAX ON STUDIO MAGSAFE CONCIERGE DOCK (5 cols) -->
+        <div class="lg:col-span-5 flex flex-col items-center">
+          <div class="text-xs font-mono uppercase tracking-widest text-crema-amber mb-3 flex items-center gap-2">
+            <i data-lucide="smartphone" class="w-4 h-4"></i>
+            <span>Client Device (iPhone 16 Pro Max)</span>
+          </div>
+
+          <!-- Phone Frame -->
+          <div class="relative w-[345px] h-[675px] bg-gradient-to-b from-[#252528] via-[#151518] to-black rounded-[54px] p-3 shadow-phone-dock border-2 border-zinc-700/60">
+            <div class="relative w-full h-full bg-[#0B141A] rounded-[44px] overflow-hidden flex flex-col text-zinc-100 border border-zinc-900 wa-doodle-bg">
+              
+              <!-- iOS Status Bar & Dynamic Island -->
+              <div class="bg-[#121B22] px-6 pt-3 pb-2 flex items-center justify-between z-30">
+                <span class="text-[11px] font-bold text-zinc-300 font-mono">11:30</span>
+                
+                <div id="crema-island-pill" class="w-24 h-5 bg-black rounded-full transition-all duration-300 flex items-center justify-center px-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-crema-amber animate-pulse mr-1"></span>
+                  <span class="text-[8px] text-zinc-400 font-mono">Crema F-7</span>
+                </div>
+
+                <div class="flex items-center gap-1.5 text-zinc-300">
+                  <i data-lucide="wifi" class="w-3 h-3"></i>
+                  <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-emerald-400"></i>
+                </div>
+              </div>
+
+              <!-- Animated iOS Dropdown Banner -->
+              <div id="crema-drop-banner" class="hidden mx-3 mt-2 p-3 bg-zinc-900/95 backdrop-blur-xl rounded-2xl border border-crema-amber/60 shadow-2xl flex items-center gap-3 z-40 animate-bounce">
+                <div class="w-8 h-8 rounded-full overflow-hidden border border-crema-amber/60">
+                  <img src="assets/images/crema-logo.jpg" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-grow">
+                  <div class="text-[10px] font-bold text-white flex justify-between">
+                    <span>CREMA CONCIERGE</span>
+                    <span class="text-zinc-500 font-mono">now</span>
+                  </div>
+                  <p class="text-[10px] text-crema-amber font-medium">VIP Table & Spanish Latte Confirmed ✨</p>
+                </div>
+              </div>
+
+              <!-- WhatsApp Chat Header -->
+              <div class="bg-[#1F2C34] px-4 py-2.5 flex items-center justify-between border-b border-zinc-800">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-full overflow-hidden border border-crema-amber/50 shadow">
+                    <img src="assets/images/crema-logo.jpg" alt="Crema Avatar" class="w-full h-full object-cover">
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white flex items-center gap-1">
+                      <span>Crema Lounge F-7</span>
+                      <i data-lucide="badge-check" class="w-3.5 h-3.5 text-emerald-400 fill-emerald-400/20"></i>
+                    </div>
+                    <div class="text-[9px] text-emerald-400 font-mono">Verified 24/7 Hospitality</div>
+                  </div>
+                </div>
+                <i data-lucide="more-vertical" class="w-4 h-4 text-zinc-400"></i>
+              </div>
+
+              <!-- Chat Message Scroll Area -->
+              <div class="flex-grow p-3 space-y-3 overflow-y-auto" id="crema-chat-thread">
+                
+                <div class="bg-[#1F2C34] rounded-2xl p-3.5 text-xs text-zinc-300 border-l-4 border-crema-amber shadow space-y-2">
+                  <p class="font-bold text-crema-amber">👋 Welcome to Crema Concierge!</p>
+                  <p class="text-[11px] text-zinc-400 leading-relaxed font-light">
+                    Click <strong>"Confirm 24/7 Booking"</strong> on the left to watch live WhatsApp ticket generation!
+                  </p>
+                </div>
+
+                <!-- Simulated Voice Note From GM -->
+                <div class="bg-[#1F2C34] rounded-2xl p-3 text-xs space-y-2 border border-zinc-700/60 shadow">
+                  <div class="flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+                    <span class="flex items-center gap-1 text-crema-amber font-bold">
+                      <i data-lucide="mic" class="w-3 h-3"></i> Voice Note from Manager
+                    </span>
+                    <span>0:11</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 bg-black/40 p-2 rounded-xl">
+                    <button onclick="playChime(640, 0.4)" class="w-7 h-7 rounded-full bg-emerald-500 text-black flex items-center justify-center hover:scale-105 transition">
+                      <i data-lucide="play" class="w-3.5 h-3.5 fill-black"></i>
+                    </button>
+                    <div class="flex-grow flex items-center gap-1">
+                      <span class="h-3 w-1 bg-emerald-400 rounded-full animate-pulse"></span>
+                      <span class="h-5 w-1 bg-emerald-400 rounded-full"></span>
+                      <span class="h-2 w-1 bg-emerald-400 rounded-full"></span>
+                      <span class="h-6 w-1 bg-emerald-400 rounded-full"></span>
+                      <span class="h-3 w-1 bg-emerald-400 rounded-full"></span>
+                    </div>
+                  </div>
+                  <p class="text-[10px] text-zinc-400 italic">"Welcome to Crema F-7, your study booth is set with power backup."</p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- THE STUDIO MAGSAFE CONCIERGE DOCK -->
+          <div class="w-full max-w-[345px] mt-4 p-4 rounded-3xl bg-[#121217] border border-crema-border/60 shadow-xl space-y-3">
+            <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400">
+              <span class="flex items-center gap-1.5 text-emerald-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>Meta Cloud API Connected</span>
+              </span>
+              <span class="text-crema-amber">+92 308 9482193</span>
+            </div>
+
+            <button onclick="dispatchCremaWhatsApp()" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-extrabold text-xs tracking-wider uppercase shadow-lg flex items-center justify-center gap-2 transition active:scale-98">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Send Ticket to Client's Real WhatsApp</span>
+            </button>
+          </div>
+
+        </div>
+
       </div>
 
-    </div>
+    </section>
 
-    <!-- SUB-FOOTER BOTTOM BAR -->
-    <div class="sub-footer-bar">
-      <div class="container sub-footer-container">
-        <div class="copyright-text">
-          © <span id="current-year">2025</span> Crema Lounge. All Rights Reserved.
-        </div>
+    <!-- ========================================================================= -->
+    <!-- TAB 3: PRIVATE LOUNGE & CO-WORKING EVENT ESTIMATOR                        -->
+    <!-- ========================================================================= -->
+    <section id="section-events" class="hidden space-y-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-bold tracking-widest text-crema-amber uppercase font-mono">24/7 Corporate & Social Engine</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-brand">PRIVATE LOUNGE & EVENT ESTIMATOR</h2>
+        <p class="text-xs sm:text-sm text-zinc-400 font-light">
+          Host private tech meetups, corporate coffee cupping, birthday parties, or 24/7 study buyouts.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         
-        <!-- REQUIRED MANDATORY AGENCY CREDIT LINK -->
-        <div class="agency-credit-wrap">
-          <a href="https://growech.site" target="_blank" rel="noopener noreferrer" class="agency-credit-link">
-            Powered by Growech Solution
-          </a>
+        <!-- Controls (6 cols) -->
+        <div class="lg:col-span-6 rounded-[32px] border border-crema-border bg-[#101014] p-8 shadow-xl space-y-6">
+          <h3 class="font-brand font-bold text-white text-base flex items-center gap-2 border-b border-crema-border/70 pb-3">
+            <i data-lucide="sliders" class="w-4 h-4 text-crema-amber"></i>
+            <span>Event Configuration</span>
+          </h3>
+
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Event Style</label>
+            <div class="grid grid-cols-3 gap-2 font-mono text-xs">
+              <button onclick="setCremaEventStyle('social', this)" class="event-style-btn active bg-crema-amber text-black font-extrabold py-3 rounded-2xl border border-crema-amber">
+                Coffee Social
+              </button>
+              <button onclick="setCremaEventStyle('tech', this)" class="event-style-btn bg-zinc-950 text-zinc-300 py-3 rounded-2xl border border-crema-border">
+                Tech Meetup
+              </button>
+              <button onclick="setCremaEventStyle('buyout', this)" class="event-style-btn bg-zinc-950 text-zinc-300 py-3 rounded-2xl border border-crema-border">
+                Night Buyout
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-mono uppercase tracking-wider text-zinc-400">Guest Count</label>
+              <span id="crema-event-guests-display" class="font-mono text-lg font-bold text-crema-amber">25 Guests</span>
+            </div>
+            <input type="range" id="crema-event-slider" min="10" max="60" step="5" value="25" oninput="calcCremaEvent()" class="w-full accent-amber-500 bg-zinc-800 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-zinc-500 font-mono">
+              <span>10 (Study Corner)</span>
+              <span>30 (Velvet Floor)</span>
+              <span>60 (Full 24/7 Buyout)</span>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400">Hospitality Tier</label>
+            
+            <label class="flex items-center justify-between p-4 rounded-2xl border border-crema-border bg-zinc-950/80 cursor-pointer hover:border-crema-amber transition">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="crema_tier" value="2200" checked onchange="calcCremaEvent()" class="accent-amber-500">
+                <div>
+                  <div class="text-xs font-bold text-white">Artisan Coffee & Dessert Social</div>
+                  <div class="text-[11px] text-zinc-400">Spanish Lattes, Artisanal Cheesecakes, Finger Sandwiches</div>
+                </div>
+              </div>
+              <span class="text-xs font-mono font-bold text-crema-amber">Rs. 2,200/head</span>
+            </label>
+
+            <label class="flex items-center justify-between p-4 rounded-2xl border border-crema-border bg-zinc-950/80 cursor-pointer hover:border-crema-amber transition">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="crema_tier" value="4500" onchange="calcCremaEvent()" class="accent-amber-500">
+                <div>
+                  <div class="text-xs font-bold text-white">Haute Continental Dinner & Coffee</div>
+                  <div class="text-[11px] text-zinc-400">Fettuccine Alfredo, Angus Smash Burgers, Cheesecakes, Beverages</div>
+                </div>
+              </div>
+              <span class="text-xs font-mono font-bold text-crema-amber">Rs. 4,500/head</span>
+            </label>
+          </div>
         </div>
 
-        <div class="sub-footer-links">
-          <a href="#location">Privacy & Terms</a>
-          <span class="dot">•</span>
-          <a href="https://maps.google.com/?q=Crema+Lounge+Foliage+Mall+Bhittai+Rd+F-7+Markaz+Islamabad" target="_blank" rel="noopener noreferrer">Google Maps Page</a>
+        <!-- Proposal Card (6 cols) -->
+        <div class="lg:col-span-6 rounded-[32px] border-2 border-crema-amber/40 bg-gradient-to-br from-[#121217] to-black p-8 shadow-2xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-crema-border pb-3">
+              <div>
+                <span class="text-[10px] bg-crema-amber/20 text-crema-amber font-mono px-2 py-0.5 rounded uppercase">24/7 Digital Agreement</span>
+                <h4 class="text-lg font-bold text-white font-brand mt-1">CREMA LOUNGE PRIVATE BOOKING</h4>
+              </div>
+              <span class="text-xs text-zinc-400 font-mono">F-7 Markaz, ISB</span>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div class="flex justify-between py-1.5 border-b border-zinc-800">
+                <span class="text-zinc-400">Event Classification:</span>
+                <span id="crema-prop-type" class="text-white font-bold">Coffee & Dessert Social</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-zinc-800">
+                <span class="text-zinc-400">Reserved Headcount:</span>
+                <span id="crema-prop-guests" class="text-white font-bold font-mono">25 Persons</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-zinc-800">
+                <span class="text-zinc-400">F&B Base Subtotal:</span>
+                <span id="crema-prop-fnb" class="text-white font-bold font-mono">Rs. 55,000</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-zinc-800">
+                <span class="text-zinc-400">High-Speed Wi-Fi & Board Games:</span>
+                <span class="text-emerald-400 font-bold font-mono">Complimentary (Included)</span>
+              </div>
+            </div>
+
+            <div class="bg-black/80 p-5 rounded-2xl border border-crema-border flex items-center justify-between">
+              <div>
+                <span class="text-[11px] text-zinc-400 uppercase tracking-wider font-mono">Total Estimated Fee</span>
+                <div id="crema-prop-total" class="text-2xl sm:text-3xl font-black text-crema-amber font-mono">Rs. 55,000</div>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-zinc-400 uppercase tracking-wider font-mono">50% Advance Token</span>
+                <div id="crema-prop-advance" class="text-lg font-bold text-white font-mono">Rs. 27,500</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <button onclick="alert('Digital proposal dispatched to corporate lead via WhatsApp with instant e-signature!')" class="w-full py-4 rounded-2xl bg-gradient-to-r from-crema-amber to-amber-500 hover:opacity-95 text-black font-extrabold text-xs uppercase tracking-widest shadow-lg flex items-center justify-center gap-2 active:scale-98 transition">
+              <i data-lucide="file-check" class="w-4 h-4"></i>
+              <span>Send Digital Proposal & Lock Date</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 4: OWNER COMMAND CENTER & COMMISSION BLEED CALCULATOR                -->
+    <!-- ========================================================================= -->
+    <section id="section-admin" class="hidden space-y-12">
+      
+      <div class="bg-gradient-to-r from-red-950/70 via-stone-900 to-black border border-red-900/60 rounded-[36px] p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950 text-red-300 text-xs font-mono border border-red-800">
+            <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i>
+            <span>The Silent Commission Leak</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-black text-white font-brand">WHERE PROFIT IS LEAKING</h2>
+          <p class="text-xs sm:text-sm text-zinc-400 max-w-xl font-light">
+            How much hard-earned profit is Crema Lounge currently handing to Foodpanda to serve its OWN regular late-night regulars?
+          </p>
+        </div>
+
+        <div class="bg-black/80 p-6 rounded-3xl border border-crema-border text-center min-w-[260px]">
+          <span class="text-[11px] text-zinc-400 uppercase font-mono tracking-wider">Annual Profit Recovered</span>
+          <div id="crema-saved-badge" class="text-3xl sm:text-4xl font-black text-emerald-400 font-mono mt-1">Rs. 2,520,000</div>
+          <span class="text-[10px] text-emerald-500/90 font-mono">100% Cash Retained</span>
         </div>
       </div>
+
+      <!-- Sliders (6 cols) & Output (6 cols) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <div class="lg:col-span-6 rounded-[32px] border border-crema-border bg-[#101014] p-8 shadow-xl space-y-6">
+          <h3 class="font-brand font-bold text-white text-base flex items-center gap-2 border-b border-crema-border/70 pb-3">
+            <i data-lucide="sliders" class="w-4 h-4 text-crema-amber"></i>
+            <span>Diagnostic Sliders (Adjust on Zoom)</span>
+          </h3>
+
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-mono text-zinc-300">Monthly Online Delivery Revenue</label>
+              <span id="slider-rev-label" class="font-mono text-base font-bold text-crema-amber">Rs. 2,000,000</span>
+            </div>
+            <input type="range" id="crema-slider-rev" min="800000" max="6000000" step="200000" value="2000000" oninput="runCremaMath()" class="w-full accent-amber-500 bg-zinc-800 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-zinc-500 font-mono">
+              <span>Rs. 8 Lakh</span>
+              <span>Rs. 30 Lakh</span>
+              <span>Rs. 60 Lakh</span>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-mono text-zinc-300">Foodpanda Commission Cut (%)</label>
+              <span id="slider-comm-label" class="font-mono text-base font-bold text-red-400">30%</span>
+            </div>
+            <input type="range" id="crema-slider-comm" min="20" max="35" step="1" value="30" oninput="runCremaMath()" class="w-full accent-red-500 bg-zinc-800 rounded-lg cursor-pointer">
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-mono text-zinc-300">Direct Regulars Shift Target (%)</label>
+              <span id="slider-conv-label" class="font-mono text-base font-bold text-emerald-400">35%</span>
+            </div>
+            <input type="range" id="crema-slider-conv" min="15" max="60" step="5" value="35" oninput="runCremaMath()" class="w-full accent-emerald-500 bg-zinc-800 rounded-lg cursor-pointer">
+          </div>
+
+          <div class="p-4 bg-zinc-950 rounded-2xl border border-crema-border text-xs text-zinc-400 leading-relaxed font-light">
+            💡 <strong class="text-white">Pitch Anchor:</strong> "Sir, aapko ek naya customer nahi chahiye is system ka kharcha nikalne ke liye. Sirf apne regular customers ko Foodpanda ke 30% cut se bacha kar direct lana hai."
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 rounded-[32px] border border-crema-border bg-[#101014] p-8 shadow-xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <h3 class="font-brand font-bold text-white text-base flex items-center gap-2 border-b border-crema-border/70 pb-3">
+              <i data-lucide="bar-chart-2" class="w-4 h-4 text-crema-amber"></i>
+              <span>Financial Impact Breakdown</span>
+            </h3>
+
+            <div class="bg-red-950/30 border border-red-900/60 p-5 rounded-2xl flex items-center justify-between">
+              <div>
+                <span class="text-xs font-bold text-red-300">Annual Third-Party Commission Lost</span>
+                <p class="text-[11px] text-red-400/80">Paid directly to delivery aggregators</p>
+              </div>
+              <div id="stat-bleed-out" class="text-xl sm:text-2xl font-black font-mono text-red-400">Rs. 7,200,000</div>
+            </div>
+
+            <div class="bg-emerald-950/30 border border-emerald-900/60 p-5 rounded-2xl flex items-center justify-between">
+              <div>
+                <span class="text-xs font-bold text-emerald-300">Direct System Recovered Cash</span>
+                <p class="text-[11px] text-emerald-400/80">Monthly profit deposited in your bank</p>
+              </div>
+              <div id="stat-monthly-saved-out" class="text-xl sm:text-2xl font-black font-mono text-emerald-400">Rs. 210,000/mo</div>
+            </div>
+
+            <div class="bg-zinc-950 p-4 rounded-2xl border border-crema-border flex items-center justify-between">
+              <div>
+                <span class="text-xs font-semibold text-zinc-200">Software Breakeven Horizon</span>
+                <p class="text-[11px] text-zinc-400">System completely pays for itself in:</p>
+              </div>
+              <span class="text-sm font-bold text-crema-amber font-mono">14 Days</span>
+            </div>
+          </div>
+
+          <div class="text-center pt-2">
+            <span class="text-xs text-zinc-500 font-mono">Formula: Monthly Delivery Revenue × Commission % × Direct Shift %</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: CHEF'S CURATED PAIRING UPSELL                                      -->
+  <!-- ========================================================================= -->
+  <div id="crema-upsell-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="capsule-nav rounded-3xl max-w-md w-full p-8 space-y-5 shadow-2xl relative border border-crema-amber/50">
+      <div class="flex items-center justify-between border-b border-crema-border pb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🍰</span>
+          <h3 class="font-brand font-bold text-white text-base">BARISTA & CHEF PAIRING</h3>
+        </div>
+        <button onclick="closeUpsell()" class="text-zinc-500 hover:text-white text-xl font-bold">&times;</button>
+      </div>
+
+      <p class="text-xs text-zinc-300 leading-relaxed font-light">
+        You added <strong id="upsell-dish-title" class="text-crema-amber font-semibold">Coffee</strong>. Our head barista recommends pairing it with our signature handcrafted slice:
+      </p>
+
+      <div class="bg-zinc-950 p-4 rounded-2xl border border-crema-border flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=200&q=80" alt="Cheesecake" class="w-12 h-12 rounded-xl object-cover border border-crema-border">
+          <div>
+            <div class="text-xs font-bold text-white">Lotus Biscoff Cheesecake</div>
+            <div class="text-[11px] text-zinc-400">Speculoos cream cheese & biscuit crumble</div>
+          </div>
+        </div>
+        <span class="text-xs font-mono font-bold text-crema-amber whitespace-nowrap">+ Rs. 1,050</span>
+      </div>
+
+      <div class="flex items-center gap-3 pt-2">
+        <button onclick="acceptUpsellItem()" class="flex-1 py-3.5 bg-crema-amber hover:bg-amber-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition shadow active:scale-98">
+          Yes, Add Cheesecake (+Rs. 1,050)
+        </button>
+        <button onclick="closeUpsell()" class="px-5 py-3.5 bg-zinc-950 hover:bg-zinc-800 text-zinc-300 font-semibold text-xs rounded-xl transition">
+          Skip
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: CART DRAWER                                                        -->
+  <!-- ========================================================================= -->
+  <div id="crema-cart-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="capsule-nav rounded-3xl max-w-lg w-full p-8 space-y-5 shadow-2xl relative border border-crema-border">
+      <div class="flex items-center justify-between border-b border-crema-border pb-3">
+        <h3 class="font-brand font-bold text-white text-base flex items-center gap-2">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-crema-amber"></i>
+          <span>YOUR CREMA SELECTION</span>
+        </h3>
+        <button onclick="openCart(false)" class="text-zinc-500 hover:text-white text-xl font-bold">&times;</button>
+      </div>
+
+      <div id="cart-rows-box" class="max-h-60 overflow-y-auto space-y-2 text-xs divide-y divide-zinc-800 pr-1"></div>
+
+      <div class="bg-zinc-950 p-4 rounded-2xl border border-crema-border space-y-2 text-xs font-mono">
+        <div class="flex justify-between text-zinc-400">
+          <span>Subtotal:</span>
+          <span id="cart-subtotal-disp" class="text-white font-bold">Rs. 0</span>
+        </div>
+        <div class="flex justify-between text-emerald-400">
+          <span>Direct VIP Benefit (0% App Fee):</span>
+          <span>Waived (Rs. 0)</span>
+        </div>
+        <div class="flex justify-between text-base font-extrabold text-white pt-2 border-t border-zinc-800">
+          <span>Total Payable:</span>
+          <span id="cart-total-disp" class="text-crema-amber">Rs. 0</span>
+        </div>
+      </div>
+
+      <button onclick="checkoutCremaCart()" class="w-full py-4 bg-gradient-to-r from-crema-amber to-amber-500 hover:opacity-95 text-black font-extrabold text-xs uppercase tracking-widest rounded-2xl transition shadow-lg flex items-center justify-center gap-2 active:scale-98">
+        <i data-lucide="check-circle" class="w-4 h-4"></i>
+        <span>Complete 60-Second Order via WhatsApp</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-crema-border bg-black py-10 mt-16 text-center text-xs text-zinc-500 space-y-2">
+    <div class="flex items-center justify-center gap-2 text-zinc-400 font-brand">
+      <span>CREMA LOUNGE</span>
+      <span>•</span>
+      <span>LOWER GROUND, FOLIAGE MALL, BHITTAI RD, F-7 MARKAZ, ISLAMABAD</span>
+    </div>
+    <div class="text-[11px] text-zinc-600 font-mono">
+      Open 24 Hours Daily • +92 308 9482193 • 2026 Haute Hospitality Architecture
     </div>
   </footer>
 
-  <!-- ============================================== -->
-  <!-- SLIDE-IN SHOPPING CART DRAWER -->
-  <!-- ============================================== -->
-  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
-  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
+  <!-- ========================================================================= -->
+  <!-- HIGH-PERFORMANCE JS & GSAP 3 LOGIC                                        -->
+  <!-- ========================================================================= -->
+  <script>
+    lucide.createIcons();
+
+    // Custom Interactive Magnetic Cursor
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
     
-    <div class="cart-drawer-header">
-      <div class="cart-drawer-title-group">
-        <i class="fa-solid fa-bag-shopping cart-title-icon"></i>
-        <h3>Your Order</h3>
-        <span class="badge-item-count" id="drawer-item-count">0 items</span>
-      </div>
-      <button class="cart-drawer-close" id="cart-drawer-close" aria-label="Close Cart">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
+    window.addEventListener('mousemove', (e) => {
+      gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0.08 });
+      gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.22, ease: "power2.out" });
+    });
 
-    <!-- Free Delivery Progress Bar -->
-    <div class="delivery-threshold-box">
-      <div class="threshold-label-row">
-        <span id="threshold-message">Add Rs 3,000 for <strong>FREE Delivery</strong></span>
-        <span id="threshold-percent">0%</span>
-      </div>
-      <div class="threshold-bar-track">
-        <div class="threshold-bar-fill" id="threshold-progress" style="width: 0%;"></div>
-      </div>
-    </div>
+    document.querySelectorAll('button, a, select, input').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        gsap.to(ring, { scale: 1.6, borderColor: '#FF8A00', duration: 0.2 });
+      });
+      el.addEventListener('mouseleave', () => {
+        gsap.to(ring, { scale: 1, borderColor: 'rgba(255, 138, 0, 0.45)', duration: 0.2 });
+      });
+    });
 
-    <!-- Cart Items Scrollable List -->
-    <div class="cart-items-wrapper" id="cart-items-container">
-      <!-- Items dynamically injected by script.js -->
-    </div>
+    // Sound Chime
+    function playChime(freq = 880, duration = 0.25) {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(freq * 1.5, audioCtx.currentTime + duration * 0.5);
+        gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
 
-    <!-- Cart Footer & Price Breakdown -->
-    <div class="cart-drawer-footer" id="cart-drawer-footer">
-      <div class="cart-summary-calculations">
-        <div class="calc-row">
-          <span>Subtotal</span>
-          <span class="calc-val" id="cart-subtotal-val">Rs 0</span>
-        </div>
-        <div class="calc-row">
-          <span>Estimated Delivery</span>
-          <span class="calc-val" id="cart-delivery-val">Rs 150</span>
-        </div>
-        <div class="calc-row total-row">
-          <span>Total Amount</span>
-          <span class="calc-val total-price" id="cart-grandtotal-val">Rs 150</span>
-        </div>
-      </div>
+    // Switch Tabs with GSAP
+    function switchTab(tabId) {
+      const allTabs = ['ordering', 'booking', 'events', 'admin'];
+      allTabs.forEach(t => {
+        const el = document.getElementById(`section-${t}`);
+        if (el) el.classList.add('hidden');
+      });
 
-      <div class="cart-cta-actions">
-        <button class="btn btn-primary btn-block btn-proceed-checkout" id="btn-proceed-checkout">
-          <span>Proceed to Checkout</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="btn-clear-cart" id="btn-clear-cart">
-          <i class="fa-regular fa-trash-can"></i> Clear Cart
-        </button>
-      </div>
-    </div>
-  </aside>
+      document.querySelectorAll('.nav-pill').forEach(b => {
+        b.classList.remove('bg-gradient-to-r', 'from-crema-amber', 'to-amber-500', 'text-black', 'font-extrabold');
+        b.classList.add('text-zinc-400');
+      });
 
-  <!-- ============================================== -->
-  <!-- CHECKOUT & ADDRESS COLLECTION MODAL -->
-  <!-- ============================================== -->
-  <div class="checkout-modal-overlay" id="checkout-modal-overlay">
-    <div class="checkout-modal-card" id="checkout-modal-card" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
-      
-      <div class="checkout-modal-header">
-        <div class="checkout-modal-title">
-          <i class="fa-brands fa-whatsapp text-green"></i>
-          <div>
-            <h3 id="checkout-title">Checkout & WhatsApp Order</h3>
-            <span class="checkout-modal-sub">Direct confirmation with Crema Lounge via WhatsApp</span>
-          </div>
-        </div>
-        <button class="modal-close-btn" id="checkout-modal-close" aria-label="Close Checkout"><i class="fa-solid fa-xmark"></i></button>
-      </div>
+      const target = document.getElementById(`section-${tabId}`);
+      if (target) {
+        target.classList.remove('hidden');
+        gsap.fromTo(target, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" });
+      }
 
-      <div class="checkout-modal-body">
-        
-        <!-- Order mini summary preview -->
-        <div class="checkout-order-summary-box">
-          <div class="summary-header-toggle" id="summary-toggle">
-            <span><strong>Order Summary</strong> (<span id="modal-summary-itemcount">0 items</span>)</span>
-            <span class="summary-total-tag" id="modal-summary-total">Rs 0</span>
-          </div>
-          <div class="summary-items-preview" id="modal-items-preview">
-            <!-- Injected by script.js -->
-          </div>
-        </div>
+      const activeBtn = document.getElementById(`nav-btn-${tabId}`);
+      if (activeBtn && tabId !== 'admin') {
+        activeBtn.classList.add('bg-gradient-to-r', 'from-crema-amber', 'to-amber-500', 'text-black', 'font-extrabold');
+        activeBtn.classList.remove('text-zinc-400');
+      }
+      lucide.createIcons();
+    }
 
-        <!-- Checkout Form with required validation -->
-        <form id="checkout-form" novalidate>
-          <div class="form-group">
-            <label for="cust-name">Full Name <span class="required-star">*</span></label>
-            <div class="input-with-icon">
-              <i class="fa-regular fa-user"></i>
-              <input type="text" id="cust-name" placeholder="e.g. Aqsha Khan" required autocomplete="name">
+    // 3D Card Hover Perspective
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(card, {
+          rotationY: x * 0.05,
+          rotationX: -y * 0.05,
+          transformPerspective: 1000,
+          duration: 0.3,
+          ease: "power1.out"
+        });
+      });
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, { rotationY: 0, rotationX: 0, duration: 0.5, ease: "power2.out" });
+      });
+    });
+
+    // Category Filter
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('.cat-chip').forEach(b => {
+        b.classList.remove('bg-crema-amber', 'text-black', 'font-extrabold', 'active');
+        b.classList.add('bg-zinc-900/90', 'text-zinc-400');
+      });
+      btn.classList.remove('bg-zinc-900/90', 'text-zinc-400');
+      btn.classList.add('bg-crema-amber', 'text-black', 'font-extrabold', 'active');
+
+      document.querySelectorAll('.dish-tile').forEach(card => {
+        if (cat === 'all' || card.classList.contains(cat)) {
+          card.style.display = 'flex';
+          gsap.fromTo(card, { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" });
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Cart Management
+    let cremaCart = [];
+
+    function addToOrder(name, price, type) {
+      cremaCart.push({ name: name, price: price });
+      refreshCartUI();
+      playChime(750, 0.15);
+
+      if (type === 'latte') {
+        document.getElementById('upsell-dish-title').innerText = name;
+        const modal = document.getElementById('crema-upsell-modal');
+        modal.classList.remove('hidden');
+        gsap.fromTo('#crema-upsell-modal > div', { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.5)" });
+      }
+    }
+
+    function acceptUpsellItem() {
+      cremaCart.push({ name: 'Lotus Biscoff Cheesecake', price: 1050 });
+      refreshCartUI();
+      closeUpsell();
+    }
+
+    function closeUpsell() {
+      document.getElementById('crema-upsell-modal').classList.add('hidden');
+    }
+
+    function openCart(show) {
+      const modal = document.getElementById('crema-cart-modal');
+      if (show) {
+        modal.classList.remove('hidden');
+        gsap.fromTo('#crema-cart-modal > div', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3 });
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function refreshCartUI() {
+      document.getElementById('cart-pill-count').innerText = cremaCart.length;
+      const subtotal = cremaCart.reduce((acc, i) => acc + i.price, 0);
+      document.getElementById('cart-subtotal-disp').innerText = 'Rs. ' + subtotal.toLocaleString();
+      document.getElementById('cart-total-disp').innerText = 'Rs. ' + subtotal.toLocaleString();
+
+      const box = document.getElementById('cart-rows-box');
+      if (cremaCart.length === 0) {
+        box.innerHTML = '<p class="text-zinc-500 py-6 text-center font-light">Your selection is currently empty.</p>';
+      } else {
+        box.innerHTML = cremaCart.map((item, idx) => `
+          <div class="flex items-center justify-between py-2.5">
+            <span class="text-white font-medium">${item.name}</span>
+            <div class="flex items-center gap-3">
+              <span class="font-mono text-crema-amber font-bold">Rs. ${item.price.toLocaleString()}</span>
+              <button onclick="removeCremaCartItem(${idx})" class="text-red-400 hover:text-red-300">✕</button>
             </div>
-            <span class="field-error-msg" id="cust-name-error">Please enter your full name</span>
+          </div>
+        `).join('');
+      }
+      lucide.createIcons();
+    }
+
+    function removeCremaCartItem(idx) {
+      cremaCart.splice(idx, 1);
+      refreshCartUI();
+    }
+
+    function checkoutCremaCart() {
+      if (cremaCart.length === 0) return alert('Please add items to your cart.');
+      playChime(1000, 0.3);
+      alert('Order placed successfully! In production, this notifies Crema Lounge F-7 baristas and issues an instant live tracking link to the guest’s WhatsApp.');
+      cremaCart = [];
+      refreshCartUI();
+      openCart(false);
+    }
+
+    // Reservation Simulation
+    function triggerCremaReservation() {
+      const party = document.getElementById('res-party-size').value;
+      const date = document.getElementById('res-date-val').value;
+      const time = document.getElementById('res-time-val').value;
+      const zone = document.getElementById('res-zone-val').value;
+      const name = document.getElementById('res-guest-name').value || 'Guest';
+
+      playChime(1100, 0.35);
+
+      const island = document.getElementById('crema-island-pill');
+      island.classList.add('w-36', 'bg-emerald-950', 'border', 'border-emerald-500/50');
+      setTimeout(() => { island.classList.remove('w-36', 'bg-emerald-950', 'border', 'border-emerald-500/50'); }, 2500);
+
+      const banner = document.getElementById('crema-drop-banner');
+      banner.classList.remove('hidden');
+      setTimeout(() => { banner.classList.add('hidden'); }, 3800);
+
+      const thread = document.getElementById('crema-chat-thread');
+      thread.innerHTML = `
+        <div class="bg-[#005c4b] text-white p-3.5 rounded-2xl rounded-tr-none text-xs space-y-2.5 shadow-xl border border-emerald-600/40 animate-fade-in">
+          <div class="flex items-center justify-between border-b border-emerald-700/60 pb-1.5">
+            <span class="font-bold text-crema-amber flex items-center gap-1 font-brand">☕ CREMA LOUNGE F-7</span>
+            <span class="text-[9px] text-emerald-200 font-mono">Just Now</span>
           </div>
 
-          <div class="form-group">
-            <label for="cust-phone">WhatsApp / Contact Phone <span class="required-star">*</span></label>
-            <div class="input-with-icon">
-              <i class="fa-brands fa-whatsapp"></i>
-              <input type="tel" id="cust-phone" placeholder="e.g. 0308 9482193 or +92 300 1234567" required autocomplete="tel">
-            </div>
-            <span class="field-error-msg" id="cust-phone-error">Please enter a valid phone number</span>
+          <p class="font-semibold text-white">
+            Assalam-o-Alaikum ${name}! ✨
+          </p>
+
+          <p class="text-[11px] text-emerald-100 leading-relaxed font-light">
+            Your 24/7 table & lounge reservation at <strong>Crema Lounge</strong> is officially confirmed!
+          </p>
+
+          <div class="bg-black/30 p-2.5 rounded-xl space-y-1 text-[11px] font-mono border border-emerald-800/80">
+            <div>📅 <strong>Date:</strong> ${date}</div>
+            <div>⏰ <strong>Time:</strong> ${time}</div>
+            <div>👥 <strong>Party:</strong> ${party}</div>
+            <div>📍 <strong>Zone:</strong> ${zone}</div>
+            <div>🏨 <strong>Location:</strong> Foliage Mall, Bhittai Rd, F-7 Markaz</div>
           </div>
 
-          <div class="form-group">
-            <label for="cust-address">Delivery Address / Dine-in Table <span class="required-star">*</span></label>
-            <div class="input-with-icon textarea-icon">
-              <i class="fa-solid fa-location-dot"></i>
-              <textarea id="cust-address" rows="3" placeholder="e.g. House 14, Street 25, Sector F-7/2, Islamabad (or: Table #4 Dine-in)" required></textarea>
-            </div>
-            <span class="field-error-msg" id="cust-address-error">Delivery address or table number is required</span>
-            
-            <!-- Quick Address Presets for Islamabad -->
-            <div class="address-presets-row">
-              <span class="preset-label">Quick Sectors:</span>
-              <button type="button" class="preset-btn" data-preset="Sector F-7, Islamabad">F-7</button>
-              <button type="button" class="preset-btn" data-preset="Sector F-6, Islamabad">F-6</button>
-              <button type="button" class="preset-btn" data-preset="Sector F-8, Islamabad">F-8</button>
-              <button type="button" class="preset-btn" data-preset="Blue Area, Islamabad">Blue Area</button>
-              <button type="button" class="preset-btn" data-preset="Table # - Dine-in Foliage Mall">Dine-in Table</button>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="cust-notes">Special Instructions / Dietary Notes (Optional)</label>
-            <div class="input-with-icon textarea-icon">
-              <i class="fa-regular fa-comment-dots"></i>
-              <textarea id="cust-notes" rows="2" placeholder="e.g. Less sugar in Spanish Latte, extra tissue paper, no spicy sauce"></textarea>
-            </div>
-          </div>
-
-          <!-- Checkout Security & WhatsApp Notice -->
-          <div class="whatsapp-checkout-notice">
-            <i class="fa-brands fa-whatsapp notice-icon"></i>
-            <div>
-              <strong>Instant WhatsApp Submission</strong>
-              <p>When you click below, WhatsApp will automatically open with your complete order breakdown and delivery details ready to send.</p>
-            </div>
-          </div>
-
-          <div class="checkout-actions">
-            <button type="submit" class="btn btn-whatsapp btn-block btn-lg" id="btn-submit-whatsapp-order">
-              <i class="fa-brands fa-whatsapp"></i>
-              <span>Order on WhatsApp Now</span>
+          <div class="space-y-1.5 pt-1">
+            <a href="https://maps.google.com/?q=Crema+Lounge+Foliage+Mall+Bhittai+Rd+F-7+Markaz+Islamabad" target="_blank" class="block w-full bg-[#1F2C34] hover:bg-[#2A3B47] text-crema-amber font-bold text-center py-2 rounded-xl border border-emerald-600/50 text-[10px] transition">
+              🗺️ Open Foliage Mall on Google Maps
+            </a>
+            <button onclick="alert('Table reservation synchronized with Apple & Google Calendar!')" class="block w-full bg-[#1F2C34] hover:bg-[#2A3B47] text-white font-medium text-center py-2 rounded-xl border border-emerald-600/50 text-[10px] transition">
+              📅 Add to Calendar with Reminder
             </button>
           </div>
-        </form>
 
-      </div>
-    </div>
-  </div>
-
-  <!-- ============================================== -->
-  <!-- GOOGLE MAPS BUSINESS DETAILS PASTE & ANALYSIS MODAL -->
-  <!-- ============================================== -->
-  <div class="sync-modal-overlay" id="sync-modal-overlay">
-    <div class="sync-modal-card" id="sync-modal-card" role="dialog" aria-modal="true" aria-labelledby="sync-title">
-      
-      <div class="sync-modal-header">
-        <div class="sync-title-box">
-          <i class="fa-solid fa-satellite-dish text-orange"></i>
-          <div>
-            <h3 id="sync-title">Google Maps Business Details Parser</h3>
-            <span class="sync-subtitle">Paste Google Maps information to analyze & dynamically update site data</span>
-          </div>
+          <div class="text-[8px] text-emerald-200/80 text-right font-mono">Verified Meta Cloud API • Crema Lounge #CL-774</div>
         </div>
-        <button class="modal-close-btn" id="sync-modal-close" aria-label="Close Sync"><i class="fa-solid fa-xmark"></i></button>
-      </div>
+      `;
+      lucide.createIcons();
+    }
 
-      <div class="sync-modal-body">
-        <p class="sync-instructions">
-          You can paste copied text directly from Google Maps (business name, rating, hours, address, phone number, review keywords). Our parser automatically extracts, normalizes, and applies the live data across the entire website and WhatsApp integration.
-        </p>
+    function dispatchCremaWhatsApp() {
+      const name = document.getElementById('res-guest-name').value || 'Guest';
+      const phone = document.getElementById('res-guest-phone').value.replace(/[^0-9]/g, '');
+      const text = encodeURIComponent(`*CREMA LOUNGE (F-7 MARKAZ ISLAMABAD)*\n\nAssalam-o-Alaikum ${name}!\nYour 24/7 lounge table is confirmed.\n\n📍 Location: Lower Ground, Foliage Mall, Bhittai Rd, F-7 Markaz, Islamabad\n🗺️ Map: https://maps.google.com/?q=Crema+Lounge+Foliage+Mall+Bhittai+Rd+F-7+Markaz+Islamabad\n\nWe look forward to hosting you at Crema Lounge!`);
+      window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+    }
 
-        <div class="form-group">
-          <label for="gmaps-paste-textarea"><strong>Paste Google Maps Raw Data:</strong></label>
-          <textarea id="gmaps-paste-textarea" rows="8" placeholder="Paste Google Maps text dump here..."></textarea>
-        </div>
+    // Events Math
+    let cremaEventStyle = 'Coffee & Dessert Social';
+    function setCremaEventStyle(style, btn) {
+      document.querySelectorAll('.event-style-btn').forEach(b => {
+        b.classList.remove('bg-crema-amber', 'text-black', 'font-extrabold', 'active');
+        b.classList.add('bg-zinc-950', 'text-zinc-300');
+      });
+      btn.classList.remove('bg-zinc-950', 'text-zinc-300');
+      btn.classList.add('bg-crema-amber', 'text-black', 'font-extrabold', 'active');
 
-        <div class="sync-action-buttons">
-          <button type="button" class="btn btn-primary" id="btn-run-analysis">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-            <span>Analyze & Update Website</span>
-          </button>
-          <button type="button" class="btn btn-outline" id="btn-load-crema-sample">
-            <i class="fa-solid fa-rotate-left"></i> Load Crema Lounge Data
-          </button>
-        </div>
+      if (style === 'social') cremaEventStyle = 'Coffee & Dessert Social';
+      else if (style === 'tech') cremaEventStyle = 'Corporate Tech Meetup & Hackathon';
+      else cremaEventStyle = 'Exclusive 24-Hour Lounge Buyout';
 
-        <!-- Extraction Feedback Box -->
-        <div class="extraction-results-box" id="extraction-results-box">
-          <h4>Parsed Business Data:</h4>
-          <ul class="parsed-fields-list" id="parsed-fields-list">
-            <li><strong>Restaurant Name:</strong> <span id="parsed-name">Crema Lounge</span></li>
-            <li><strong>Phone / WhatsApp:</strong> <span id="parsed-phone">+92 308 9482193</span></li>
-            <li><strong>Hours:</strong> <span id="parsed-hours">Open 24 hours</span></li>
-            <li><strong>Address:</strong> <span id="parsed-address">Lower Ground, Foliage Mall, Bhittai Rd, F-7 Markaz, Islamabad</span></li>
-            <li><strong>Rating & Reviews:</strong> <span id="parsed-rating">4.8 (115 reviews)</span></li>
-            <li><strong>Category:</strong> <span id="parsed-category">Cafe & Dine-in</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+      calcCremaEvent();
+    }
 
-  <!-- FLOATING QUICK ACTION BUTTONS -->
-  <div class="floating-quick-actions">
-    <!-- Floating Agency Credit Badge (Directly Above WhatsApp on side, visible across mobile & desktop) -->
-    <a href="https://growech.site" target="_blank" rel="noopener noreferrer" class="floating-growech-badge" aria-label="Powered by Growech Solution">
-      <span class="growech-badge-pulse"></span>
-      <span class="growech-badge-text">Powered by <strong>Growech Solution</strong></span>
-    </a>
+    function calcCremaEvent() {
+      const guests = parseInt(document.getElementById('crema-event-slider').value);
+      document.getElementById('crema-event-guests-display').innerText = `${guests} Guests`;
 
-    <!-- WhatsApp Direct Chat Button -->
-    <a href="https://wa.me/923089482193" target="_blank" rel="noopener noreferrer" class="float-action-btn btn-wa-float" aria-label="Chat on WhatsApp" id="floating-wa-btn">
-      <i class="fa-brands fa-whatsapp"></i>
-      <span class="tooltip-label">Chat on WhatsApp</span>
-    </a>
-    <!-- Scroll To Top Button -->
-    <button class="float-action-btn btn-top-float" id="scroll-top-btn" aria-label="Scroll to Top">
-      <i class="fa-solid fa-arrow-up"></i>
-    </button>
-  </div>
+      const tierRadio = document.querySelector('input[name="crema_tier"]:checked');
+      const tierVal = tierRadio ? parseInt(tierRadio.value) : 2200;
 
-  <!-- TOAST NOTIFICATIONS -->
-  <div class="toast-notification-hub" id="toast-hub" aria-live="polite"></div>
+      const fnbBase = guests * tierVal;
+      const advance = fnbBase * 0.5;
 
-  <!-- ============================================== -->
-  <!-- SCRIPTS: GSAP + SCROLLTRIGGER + ANIME.JS + MAIN -->
-  <!-- ============================================== -->
-  <!-- GSAP 3.12 Core + ScrollTrigger CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <!-- Anime.js 3.2 CDN for micro-interactions -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
-  <!-- Main Application Script -->
-  <script src="script.js"></script>
+      document.getElementById('crema-prop-type').innerText = cremaEventStyle;
+      document.getElementById('crema-prop-guests').innerText = `${guests} Persons`;
+      document.getElementById('crema-prop-fnb').innerText = 'Rs. ' + fnbBase.toLocaleString();
+      document.getElementById('crema-prop-total').innerText = 'Rs. ' + fnbBase.toLocaleString();
+      document.getElementById('crema-prop-advance').innerText = 'Rs. ' + advance.toLocaleString();
+    }
 
+    // Admin Math
+    function runCremaMath() {
+      const rev = parseInt(document.getElementById('crema-slider-rev').value);
+      const comm = parseInt(document.getElementById('crema-slider-comm').value) / 100;
+      const conv = parseInt(document.getElementById('crema-slider-conv').value) / 100;
+
+      document.getElementById('slider-rev-label').innerText = 'Rs. ' + rev.toLocaleString();
+      document.getElementById('slider-comm-label').innerText = (comm * 100) + '%';
+      document.getElementById('slider-conv-label').innerText = (conv * 100) + '%';
+
+      const monthlyBleed = rev * comm;
+      const annualBleed = monthlyBleed * 12;
+
+      const monthlySaved = monthlyBleed * conv;
+      const annualSaved = monthlySaved * 12;
+
+      document.getElementById('stat-bleed-out').innerText = 'Rs. ' + Math.round(annualBleed).toLocaleString();
+      document.getElementById('stat-monthly-saved-out').innerText = 'Rs. ' + Math.round(monthlySaved).toLocaleString() + '/mo';
+      document.getElementById('crema-saved-badge').innerText = 'Rs. ' + Math.round(annualSaved).toLocaleString();
+    }
+
+    // Initialize
+    runCremaMath();
+    calcCremaEvent();
+  </script>
 </body>
 </html>
